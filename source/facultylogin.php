@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: facultylogin.php,v 1.2 2001/11/01 20:51:27 basmati Exp $
+// $Id: facultylogin.php,v 1.3 2001/11/16 23:19:17 basmati Exp $
 
  global $school_id;
  $uname = $HTTP_POST_VARS['uname'];
@@ -53,8 +53,7 @@
   $HTTP_SESSION_VARS['UserID'] = $uname;
 
  echo '<LINK rel="stylesheet" type="text/css" href="style.css" title="style1">';
- echo("<body bgcolor=white><center><img src=basmati.jpg><br><font size=+1 color=green>You are now logged in.</font></center>");
- echo "<hr>";
+ echo("<body bgcolor=white><center><img src=basmati.gif><br><font size=+1 color=green>You are now logged in.</font></center>");  echo "<hr>";
  echo $announcement;
 
   fncloseDB();
