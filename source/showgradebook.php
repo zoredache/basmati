@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: showgradebook.php,v 1.6 2003/11/10 15:51:46 basmati Exp $
+// $Id: showgradebook.php,v 1.7 2003/12/23 19:12:16 basmati Exp $
 
  $LoginType = "";
  session_start();
@@ -77,7 +77,7 @@
                  COURSEINFO.modified as 'modified', GMSCORES.grade as grade, GMSCORES.percent as percent, COURSEINFO.email as email, GMSCORES.comments as comments,
                  COURSEINFO.assignlist as assignlist, COURSEINFO.ealr as ealr,GMSCORES.scores as scores, COURSEINFO.assignvals as assignvals, COURSEINFO.phone as phone,
                  COURSEINFO.misc as misc
-                 FROM COURSEINFO left join GMSCORES on COURSEINFO.cc = GMSCORES.cc and COURSEINFO.schoolid = GMSCORES.schoolid where GMSCORES.cc = '$cc' and GMSCORES.sid = "  . $sid. " and GMSCORES.schoolid = '" . $school . "' order by GMSCORES.cc;";
+                 FROM COURSEINFO inner join GMSCORES on COURSEINFO.cc = GMSCORES.cc and COURSEINFO.schoolid = GMSCORES.schoolid where GMSCORES.cc = '$cc' and GMSCORES.sid = "  . $sid. " and GMSCORES.schoolid = '" . $school . "' order by GMSCORES.cc;";
 
 
   // echo $mysql_query;
@@ -190,7 +190,7 @@ if ($datamethod == "mysql"){
 	//Strip off final comment
 	$commentlist = substr($commentlist,0,-1);
 	if ($commentlist != "") {
-		$sqlgetcom = "SELECT * FROM COMMENTLIST where commentnum in ($commentlist) and schoolid = '$SchoolID';";
+		$sqlgetcom = "SELECT * FROM COMMENTLIST where commentnum in ($commentlist);";
 		fnOpenDB();
 		$sql_result = mysql_query($sqlgetcom,$link);
 	    if (mysql_num_rows($sql_result) > 0){

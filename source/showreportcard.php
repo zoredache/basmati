@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: showreportcard.php,v 1.3 2002/09/27 23:13:22 basmati Exp $
+// $Id: showreportcard.php,v 1.4 2003/12/23 19:12:16 basmati Exp $
 
   $LoginType = "";
 
@@ -104,7 +104,7 @@
   $sql_query = "SELECT * from COURSEINFO inner join GMSCORES on COURSEINFO.cc = GMSCORES.cc where GMSCORES.sid = "  . $sid. " and GMSCORES.schoolid = '" . $school . "' order by GMSCORES.cc;";
   $mysql_query = "SELECT COURSEINFO.cc as cc, COURSEINFO.coursename as coursename, COURSEINFO.facultyname as facultyname,
                  COURSEINFO.modified as 'modified', GMSCORES.grade as grade, GMSCORES.percent as percent, COURSEINFO.email as email, COURSEINFO.misc as misc
-                 FROM COURSEINFO left join GMSCORES on GMSCORES.cc = COURSEINFO.cc and GMSCORES.schoolid = COURSEINFO.schoolid where GMSCORES.sid = "  . $sid. " and GMSCORES.schoolid = '" . $school . "' order by GMSCORES.cc;";
+                 FROM COURSEINFO inner join GMSCORES on GMSCORES.cc = COURSEINFO.cc and GMSCORES.schoolid = COURSEINFO.schoolid where GMSCORES.sid = "  . $sid. " and GMSCORES.schoolid = '" . $school . "' order by GMSCORES.cc;";
 
 
  if ($datamethod == "odbc"){
@@ -209,9 +209,9 @@ Updated</b></td><td><b>Grade</b></td><td><b>Gradebook</b></td><td><b>Class<br>No
   }
   echo ("</table>");
 
-  if ($enableplugins == 1){
-	include("plugins.php");
-  }
+   if ($enableplugins == 1){
+       include("plugins.php");
+   }
 
 
 function fnOpenDB(){

@@ -102,3 +102,9 @@ file and then copy the example_facultyplugins.php file
 to facultyplugins.php.  
 
 
+*** 2003-December-23 ***
+Modified LEFT join queries to inner join queries to speed up
+performance for large districts in "getpasswords.php", "showgradebook.php",
+and "showreportcard.php"
+
+
