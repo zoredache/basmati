@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: showgradebook.php,v 1.5 2002/03/26 20:53:06 basmati Exp $
+// $Id: showgradebook.php,v 1.6 2003/11/10 15:51:46 basmati Exp $
 
  $LoginType = "";
  session_start();
@@ -190,7 +190,7 @@ if ($datamethod == "mysql"){
 	//Strip off final comment
 	$commentlist = substr($commentlist,0,-1);
 	if ($commentlist != "") {
-		$sqlgetcom = "SELECT * FROM COMMENTLIST where commentnum in ($commentlist);";
+		$sqlgetcom = "SELECT * FROM COMMENTLIST where commentnum in ($commentlist) and schoolid = '$SchoolID';";
 		fnOpenDB();
 		$sql_result = mysql_query($sqlgetcom,$link);
 	    if (mysql_num_rows($sql_result) > 0){
