@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: showgroupreport.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: showgroupreport.php,v 1.2 2004/02/05 20:15:49 basmati Exp $
 
 //This file displays results of a SQL query
 
@@ -86,8 +86,8 @@ if ($groupcriteria == 1){
 
 
 $sqltext = "SELECT PERSONAL.sid as sid, PERSONAL.last, PERSONAL.first, GMSCORES.cc as cc,
-           COURSEINFO.facultyname, COURSEINFO.coursename, GMSCORES.percent as percent, COURSEINFO.modified from PERSONAL
-           left join GMSCORES on GMSCORES.sid = PERSONAL.sid left join COURSEINFO on COURSEINFO.cc
+           COURSEINFO.facultyname, COURSEINFO.coursename, GMSCORES.grade as lettergrade, GMSCORES.percent as percent, COURSEINFO.modified from PERSONAL
+           inner join GMSCORES on GMSCORES.sid = PERSONAL.sid inner join COURSEINFO on COURSEINFO.cc
            = GMSCORES.cc where GMSCORES.sid in ($sidlist) and PERSONAL.schoolid = '$schoolid' and
            GMSCORES.schoolid = '$schoolid' and COURSEINFO.schoolid = '$schoolid' and GMSCORES.percent $symbol $percent order by last, first, sid, cc;";
 
