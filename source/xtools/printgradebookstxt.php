@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: printgradebookstxt.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: printgradebookstxt.php,v 1.2 2001/10/16 21:14:28 basmati Exp $
 
  $LoginType = "";
  session_start();
@@ -40,7 +40,7 @@
 
 
  include ("../basmaticonstants.php");
-
+ set_time_limit(6000);  //allow up to 10 minutes for this script to run!
 
  if ($LoginType != "A" ){
    echo("You must log-in to use this feature.");
@@ -210,7 +210,7 @@ if ($datamethod == "mysql"){
   }
     $outputtxt .= "$nl$nl";
     $outputtxt .= "--------------------------------------------------------------------------$nl";
-    $outputtxt .= "Scores $tab $tab Assignment$nl";
+    $outputtxt .= "Scores / Values      Assignment$nl";
     $outputtxt .= "--------------------------------------------------------------------------$nl";
 
   for ($i = 0; $i < $nrows-1 ;$i++){
@@ -223,8 +223,16 @@ if ($datamethod == "mysql"){
     if (!eregi("-misc",$grade_array[misc][1])){
        $output .= "<td border=1>" . ParseStandards($ealr_names[$i],$grade_array[misc][1]) . "</td>"; //process standards
     }
-    $outputtxt .=   AddStarofDeath($student_scores[$i]) . " / ";
-    $outputtxt .=  $assign_vals[$i] . "$tab $tab ";
+    $outputtxt .=  sprintf("%6s", AddStarofDeath($student_scores[$i])) . " / ";
+    $outputtxt .=  sprintf("%6s",$assign_vals[$i]);
+    $outputtxt .= "      ";
+    //Allow up to 15 characters for scores... then pad the rest with spaces...
+    //$nchar = strlen(trim($assign_vals[$i]));
+    //$spacesneeded = 15 - $nchar;
+    //echo $nchar;
+    //for ($sp = 0; $sp < $spacesneeded; $sp++){
+    // 	$outputtxt .= " ";
+    //}
     $outputtxt .= $assign_names[$i] . "$nl";
 
     $output .= "</tr>";
@@ -271,7 +279,7 @@ function AddNA($string){
 
 function AddStarofDeath($string){
  if (trim($string) == ""){
-   return "<font color=red ><b>*</b></font>";
+   return "*";
  } else {
    return $string;
  }
@@ -339,6 +347,7 @@ function ParseStandards($standardtext,$processcode){
 
 
 ?>
+
 
 
 

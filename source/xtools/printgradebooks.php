@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: printgradebooks.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: printgradebooks.php,v 1.2 2001/10/16 21:14:28 basmati Exp $
 
  $LoginType = "";
  session_start();
@@ -43,6 +43,7 @@
    echo("You must log-in to use this feature.");
    exit;
  }
+set_time_limit(6000);  //allow up to 10 minutes for this script to run!
 
 //Read the student ID's from the submitted file...
 $delim = chr(9);
@@ -314,6 +315,7 @@ function ParseStandards($standardtext,$processcode){
 
 
 ?>
+
 
 
 
