@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: getpasswords.php,v 1.3 2001/11/05 20:05:32 basmati Exp $
+// $Id: getpasswords.php,v 1.4 2002/09/30 20:49:56 basmati Exp $
 
  $LoginType = "";
  session_start();
@@ -39,7 +39,7 @@
 
  if ($reporttype != "GMIMPORT" ){
   $sql_query = "SELECT PERSONAL.sid, last, first, password, GMSCORES.grade as Score from PERSONAL left join GMSCORES on PERSONAL.sid = GMSCORES.sid where GMSCORES.cc = '" . $cc . "' and PERSONAL.schoolid = '" . $SchoolID . "';";
-  $mysql_query  = "SELECT PERSONAL.sid, last, first, password, GMSCORES.grade as Score from PERSONAL left join GMSCORES on PERSONAL.sid = GMSCORES.sid where GMSCORES.cc = '" . $cc . "' and PERSONAL.schoolid = '" . $SchoolID . "' and GMSCORES.schoolid = '". $SchoolID . "';";
+  $mysql_query  = "SELECT PERSONAL.sid, last, first, password, GMSCORES.grade as Score from PERSONAL left join GMSCORES on PERSONAL.sid = GMSCORES.sid where GMSCORES.cc = '" . $cc . "' and PERSONAL.schoolid = '" . $SchoolID . "' and GMSCORES.schoolid = '". $SchoolID . "' order by last, first;";
  } else {
    $sql_query = "SELECT DISTINCT PERSONAL.sid, password from PERSONAL left join GMSCORES on PERSONAL.sid = GMSCORES.sid where GMSCORES.cc = '" . $cc . "' and PERSONAL.schoolid = '" . $SchoolID . "';";
    $mysql_query  = "SELECT DISTINCT PERSONAL.sid, password from PERSONAL left join GMSCORES on PERSONAL.sid = GMSCORES.sid where GMSCORES.cc = '" . $cc . "' and PERSONAL.schoolid = '" . $SchoolID . "' and GMSCORES.schoolid = '" . $SchoolID . "';";
