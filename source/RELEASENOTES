@@ -50,3 +50,9 @@ New graphics have been added to the system per the
 help of Mr. J. Wilson of Arlington School District.
 
 
+*** 2002-January-16 ***
+Added $districtid to basmaticonstants.php to allow
+for improved security when multiple districts are
+hosted on the same server.
+
+
