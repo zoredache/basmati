@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: showgradebook.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: showgradebook.php,v 1.2 2001/10/25 17:33:21 basmati Exp $
 
  $LoginType = "";
  session_start();
@@ -186,7 +186,10 @@ if ($datamethod == "mysql"){
 
   echo("<center>");
   echo("<table border=1 ><tr>");
-  echo("<td><b>Assignment</b></td><td><b>Your Score</b></td><td><b>Points <br>Possible</b></td>");
+  echo("<td><b>Assignment</b></td><td><b>Your<br> Score</b></td></td>");
+  if (!eregi("-pp",$grade_array[misc][1])){
+    echo("<td><b>Points<br>Possible</b></td>");
+  }
   if (!eregi("-misc",$grade_array[misc][1])){
     echo("<td><b>Misc.</b></td>");
   }
@@ -207,17 +210,21 @@ if ($datamethod == "mysql"){
 
   for ($i = 0; $i < $nrows-1 ;$i++){
     echo("<tr>");
-    echo("<td border=1>" . $assign_names[$i] . "</td>");
-    echo("<td border=1>" . AddStarofDeath($student_scores[$i]) . "</td>");
-    echo("<td border=1>" . $assign_vals[$i] . "</td>");
+    echo("<td border=1>" . $assign_names[$i] . "&nbsp</td>");
+    echo("<td border=1>" . AddStarofDeath($student_scores[$i]) . "&nbsp</td>");
+    if (!eregi("-pp",$grade_array[misc][1])){
+       echo("<td border=1>" . ParseStandards($assign_vals[$i],$grade_array[misc][1]) . "&nbsp</td>"); //process standards
+    }
     if (!eregi("-misc",$grade_array[misc][1])){
-       echo("<td border=1>" . ParseStandards($ealr_names[$i],$grade_array[misc][1]) . "</td>"); //process standards
+       echo("<td border=1>" . ParseStandards($ealr_names[$i],$grade_array[misc][1]) . "&nbsp</td>"); //process standards
     }
     echo("</tr>");
   }
   echo ("</table>");
   echo ("</center></blockquote>");
 
+//Show the disclaimer unless '-disc' appears in MISC3
+if (!eregi("-disc",$grade_array[misc][1])){
  echo "<table border = 0><tr><td width=100></td><td width=*>";
  echo "<p><hr><b>Disclaimer:</b>  The scores contained in the table above may be weighted.  ";
  echo "It is not usually possible to simply add the number of points earned and divide ";
@@ -229,6 +236,7 @@ if ($datamethod == "mysql"){
  echo "<p>";
  echo "<br>";
  echo "</td></tr></table>";
+}
 
 
 
@@ -313,6 +321,7 @@ function ParseStandards($standardtext,$processcode){
 
 
 ?>
+
 
 
 
