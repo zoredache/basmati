@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: uploadfile.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: uploadfile.php,v 1.2 2001/10/25 17:32:03 basmati Exp $
 
 $LoginType = "";
 session_start();
@@ -664,7 +664,15 @@ function cdataHandler($parser, $data) {
      $data = doubleval($data);
     }
     if ($keyval == "SCORES") {
-     $data = trim(ereg_replace(",",chr(169),$data)) . chr(169);
+     //If the data contains chr(169) already... we don't need to
+     //parse by commas... just add the final chr(169) and plop into the
+     //database!  Otherwise, it's probably a traditional format with
+     //scores separated by commas
+     	if (eregi(chr(169),$data)) {
+           $data = trim($data) . chr(169);
+     	} else {
+	       $data = trim(ereg_replace(",",chr(169),$data)) . chr(169);
+     	}
     }
     $studentdata[$nstudent][$keyval] = trim($data);
    }
@@ -694,3 +702,4 @@ function randomPassword($length){
 }
 
 ?>
+
