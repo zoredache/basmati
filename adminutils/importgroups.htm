@@ -1,0 +1,44 @@
+<html><head>
+<!-- ------------------------------------------------------------------ -->
+<!--  Basmati -- Version 2.0P                                           -->
+<!-- ------------------------------------------------------------------ -->
+<!-- Copyright (C) 2000-2001 James B. Bassett (basmatisoftware@msn.com) -->
+<!-- ------------------------------------------------------------------ -->
+<!-- This program is free software.  You can redistribute in and/or     -->
+<!-- modify it under the terms of the GNU General Public License        -->
+<!-- Version 2 as published by the Free Software Foundation.            -->
+<!-- ------------------------------------------------------------------ -->
+<!--  Authors: James B. Bassett - basmatisoftware@msn.com               -->
+<!-- ------------------------------------------------------------------ -->
+<!-- $Id: importgroups.htm,v 1.1 2001/09/22 22:18:11 basmati Exp $ -->
+<title>Import Groups from TSV File</title>
+</head>
+<body>
+<h2>
+Import Groups from Tab-Separated File
+</h2>
+<hr>
+This page will import a list of groups from a TSV formatted file into the database.  Any
+existing group with the same name will be over-written.    The structure of the file can be found below.
+<p>
+<form method=post action=importgroups.php ENCTYPE="multipart/form-data">
+Please submit your TSV Student file...
+<br> <input type=file name="userfile" value="Locate File">
+<br>
+<br>School ID: <input type=text name=schoolid>
+<br>Group ID: <input type=text name=groupid>
+<p>
+Process this file...
+<br>
+<input type=submit value="Process this File">
+<p>
+<hr>
+<b>File Structure</b>:
+<br>The following fields should exist in this file (in the order listed below):
+<pre>
+SID (one per line)
+</pre>
+</body>
+</html>
+
+
