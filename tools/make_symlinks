@@ -1,0 +1,6 @@
+#! /bin/bash
+
+for file in `ls ../basmati-source`
+ do 
+  ln -s ../basmati-source/$file
+ done

@@ -1,0 +1,142 @@
+<html><head>
+<!-- ------------------------------------------------------------------ -->
+<!--  Basmati -- Version 2.0P                                           -->
+<!-- ------------------------------------------------------------------ -->
+<!-- Copyright (C) 2000-2001 James B. Bassett (basmatisoftware@msn.com) -->
+<!-- ------------------------------------------------------------------ -->
+<!-- This program is free software.  You can redistribute in and/or     -->
+<!-- modify it under the terms of the GNU General Public License        -->
+<!-- Version 2 as published by the Free Software Foundation.            -->
+<!-- ------------------------------------------------------------------ -->
+<!--  Authors: James B. Bassett - basmatisoftware@msn.com               -->
+<!-- ------------------------------------------------------------------ -->
+<!-- $Id: admintoolkit.htm,v 1.1 2001/10/10 03:05:45 basmati Exp $ -->
+<title>SQL Quick-Tools</title>
+</head>
+<body bgcolor=white>
+<h2>SQL Quick-Tools</h2>
+<form method=post name=frm1 action=sqlquickquery.php>
+<textarea cols=50 rows=10 name=sqltext></textarea><br>
+<input type=submit value="Submit Query"><input type=reset value="Cancel">
+<p>
+<input type=hidden name=returnstyle value=returnhtml checked>
+</form>
+
+<table bgcolor =yellow border=1>
+<form name=js>
+<tr>
+<td bgcolor=black>&nbsp</td>
+<td bgcolor=orange>Set school ID (where applicable):
+<input type=text name=txt1schoolid size=8></td>
+</tr>
+
+<tr>
+<td bgcolor=black>&nbsp</td>
+<td bgcolor=#aaffaa>Viewing-Related tools</td>
+</tr>
+
+<Tr>
+<td align=right bgcolor=#aaffaa><input type=button onClick=btnclk(1) Value="-->"></td>
+<td bgcolor=#aaffaa>Display the data in the
+<select name=seltable>
+ <option>COURSEINFO
+ <option>GMSCORES
+ <option>PERSONAL
+</select>
+for given school.
+</td>
+</tr>
+
+
+<Tr>
+<td align=right bgcolor=#aaffaa><input type=button onClick=btnclk(1.1) Value="-->"></td>
+<td bgcolor=#aaffaa>Display the data in the
+<select name=seltable1p1>
+ <option>CLIENTS
+ <option>SCHOOLS
+
+</select>
+table.
+</td>
+</tr>
+
+<tr>
+<td align=right bgcolor=#aaffaa><input type=button onClick=btnclk(1.2) value="-->"></td>
+<td bgcolor=#aaffaa>Show posting history
+</td>
+</tr>
+
+
+
+<tr>
+<td bgcolor=black>&nbsp</td>
+<td bgcolor=yellow>Maintenance-Related tools</td>
+</tr>
+
+
+
+<tr bgcolor=yellow>
+<td align=right><input type=button onClick=btnclk(2) Value="-->"></td>
+<td>Delete class with coursecode
+<input type=text name=txt2cc size=8> from COURSEINFO table.
+</td>
+</tr>
+
+<tr bgcolor=yellow>
+<td align=right><input type=button onClick=btnclk(3) Value="-->"></td>
+<td>Delete class with coursecode
+<input type=text name=txt3cc size=8> from GMSCORES table.
+</td>
+
+</tr>
+</form>
+</table>
+</font>
+</font>
+<SCRIPT LANUAGE=JAVASCRIPT>
+
+  function btnclk(n){
+   switch(n){
+
+    case 1:
+     if (document.js.txt1schoolid.value == "") {
+       alert("You must select a school!")
+       break
+     }
+     dropitem = document.js.seltable.selectedIndex ;
+     document.frm1.sqltext.value = "SELECT * FROM " + document.js.seltable[dropitem].text + " where schoolid = '" + document.js.txt1schoolid.value + "'";
+     break
+    case 1.1:
+     dropitem = document.js.seltable1p1.selectedIndex;
+     document.frm1.sqltext.value = "SELECT * FROM " + document.js.seltable1p1[dropitem].text;
+     break
+    case 1.2:
+     document.frm1.sqltext.value = "SELECT facultyname, modified FROM COURSEINFO order by modified desc ";
+     break
+
+    case 2:
+     if (document.js.txt1schoolid.value == "") {
+       alert("You must select a school!")
+       break
+     }
+     alert ("Remember to also remove from the GMSCORES table!")
+     document.frm1.sqltext.value = "DELETE FROM COURSEINFO WHERE cc = '" + document.js.txt2cc.value + "' and schoolid = '"  + document.js.txt1schoolid.value + "'";
+     document.js.txt3cc.value = document.js.txt2cc.value;
+     break
+    case 3:
+     if (document.js.txt1schoolid.value == "") {
+       alert("You must select a school!")
+       break
+     }
+     alert ("Remember to also remove from the COURSEINFO table!")
+     document.frm1.sqltext.value = "DELETE FROM GMSCORES WHERE cc = '" + document.js.txt3cc.value + "' and schoolid = '"  + document.js.txt1schoolid.value + "'";
+     document.js.txt2cc.value = document.js.txt3cc.value;
+     break
+   }
+
+  }
+
+</SCRIPT>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<html><head>
+<!-- ------------------------------------------------------------------ -->
+<!--  Basmati -- Version 2.0P                                           -->
+<!-- ------------------------------------------------------------------ -->
+<!-- Copyright (C) 2000-2001 James B. Bassett (basmatisoftware@msn.com) -->
+<!-- ------------------------------------------------------------------ -->
+<!-- This program is free software.  You can redistribute in and/or     -->
+<!-- modify it under the terms of the GNU General Public License        -->
+<!-- Version 2 as published by the Free Software Foundation.            -->
+<!-- ------------------------------------------------------------------ -->
+<!--  Authors: James B. Bassett - basmatisoftware@msn.com               -->
+<!-- ------------------------------------------------------------------ -->
+<!-- $Id: importstudents.htm,v 1.1 2001/10/10 03:05:45 basmati Exp $ -->
+<title>Import Students from TSV File</title>
+</head>
+<body>
+<h2>
+Import Students from Tab-Separated File
+</h2>
+<hr>
+This page will import a list of students from a TSV formatted file into the database.  New
+students will be added, old students will be updated.    The structure of the file can be found below.
+<p>
+<form method=post action=importstudents.php ENCTYPE="multipart/form-data">
+Please submit your TSV Student file...
+<br> <input type=file name="userfile" value="Locate File">
+<br>
+<br>School ID: <input type=text name=schoolid>
+<br>Default Password: <input type=text name=defaultpw value=default>
+<p>
+Process this file...
+<br>
+<input type=submit value="Process this File">
+<p>
+<hr>
+<b>File Structure</b>:
+<br>The following fields should exist in this file (in the order listed below):
+<pre>
+SID
+Last
+First
+Grade
+Password (unused.... will default to value above -- then run "randomizepasswords.htm" script)
+Status (unused)
+</pre>
+</body>
+</html>
+
+

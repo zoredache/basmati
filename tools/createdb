@@ -1,0 +1,25 @@
+#! /bin/bash
+
+DB=$1
+USER=$2
+PW=$3
+
+if [ "$1" != "" ]; then
+  echo "Creating User & Database" 
+  mysql mysql -u root -p <<EOF
+##  cat <<EOF
+insert into user 
+(Host,User,Password) 
+values 
+('%.esd189.org','$USER',password('$PW')); 
+
+insert into db
+(Host, Db, User, Select_priv, Insert_priv, Update_priv, 
+Delete_priv, Create_priv, Drop_priv, Grant_priv, 
+References_priv, Index_priv, Alter_priv)
+values ('%.esd189.org','$DB','$USER','Y','Y','Y','Y','Y','Y','N','N','Y','N');
+
+EOF
+else
+  echo "usage $0 db user password"
+fi   
