@@ -10,7 +10,7 @@
 <!-- ------------------------------------------------------------------ -->
 <!--  Authors: James B. Bassett - basmatisoftware@msn.com               -->
 <!-- ------------------------------------------------------------------ -->
-<!-- $Id: facultyloginform.php,v 1.2 2001/11/01 20:51:27 basmati Exp $ -->
+<!-- $Id: facultyloginform.php,v 1.3 2002/04/27 21:30:07 basmati Exp $ -->
 <title>Login as Faculty Member</title>
 <LINK rel="stylesheet" type = "text/css" href="style.css" title="style1">
 </head>
@@ -19,21 +19,21 @@
 <?php
 
   include("basmaticonstants.php");
-
+  echo "<TABLE BORDER=0>";
   if (trim($emaildomain) == "") {
     echo "<form method=post action=facultylogin.php name=loginform>";
-  	echo "Username:  <input type=text name=uname size=30><br>";
-    echo "Password:  <input type=password name = pword size=30><br>";
-    echo "<input type=submit value='Log-In'>";
+  	echo "<TR><TD>Username:  </TD><TD><input type=text name=uname size=30></TD></TR>";
+    echo "<TR><TD>Password:  </TD><TD><input type=password name = pword size=30></TD></TR>";
+    echo "<TR><TD COLSPAN=2><input type=submit value='Log-In'></TD></TR>";
     echo "</form>";
   } else {
     echo "<form method=post action=facultylogin.php name=loginform onsubmit = 'return checkemail()'>";
-  	echo "Username:  <input type=text name=uname size=30><b>@$emaildomain</b><br>";
-    echo "Password:  <input type=password name = pword size=30><br>";
-    echo "<input type=submit value='Log-In'>";
+  	echo "<TR><TD>Username:  </TD><TD><input type=text name=uname size=30><b>@$emaildomain</b></TD></TR>";
+    echo "<TR><TD>Password:  </TD><TD><input type=password name = pword size=30></TD></TR>";
+    echo "<TR><TD COLSPAN=2><input type=submit value='Log-In'></TD></TR>";
     echo "</form>";
   }
-
+	echo "</TABLE>";
     echo "<p><hr>";
 	echo $announcement;
 ?>
