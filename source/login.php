@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: login.php,v 1.2 2001/11/01 20:51:27 basmati Exp $
+// $Id: login.php,v 1.3 2002/04/25 02:45:21 basmati Exp $
 
  include ("basmaticonstants.php");
 
@@ -79,7 +79,7 @@
 
 
 
- echo("<html><head><title>Login to Basmati</title></head><body background=bbrick.jpg>");
+ echo("<html><head><title>Login to Basmati</title></head><body background=bbrick.jpg link=white vlink=white>");
  echo '<LINK rel="stylesheet" type="text/css" href="style.css" title="style1">';
  echo("<font size=+2 color=yellow><center>Login to Basmati</font><p>");
  echo("<table border=1 cellpadding=30><tr>");
@@ -109,11 +109,11 @@ if ($usetextbox == 0) {
    echo ("<input type=submit value=\"Check Grades\">");
 
  echo("</font></td></tr>");
-
-
  echo("</table>");
-
  echo ("</form>");
+ if ($privacyurl != "") {
+	echo "<P><CENTER><A HREF=\"$privacyurl\">Privacy Policy</a>";
+ }
 
 function fnOpenDB(){
  global $link;

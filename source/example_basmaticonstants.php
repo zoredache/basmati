@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: example_basmaticonstants.php,v 1.5 2002/04/21 07:19:32 basmati Exp $
+// $Id: example_basmaticonstants.php,v 1.6 2002/04/25 02:45:21 basmati Exp $
 
 //Database Access, etc
 $datamethod = "mysql";  //Set to odbc or mysql depending upon database server
@@ -37,6 +37,7 @@ $emaildomain = "";  // Leave blank if site will host multiple email domains.
 $localsubnet = "169.204.11%"; //Used for statistics to determine local access
 $enforce_expiration = 0; //Used if expiration dates on faculty accounts should be enforced
 $expireurl = ""; //URL to display if account has expired
+$privacyurl = ""; //URL to display your privacy policy
 
 //These constants allow access to administrative pages... be sure to change them!
 $admuser = "adminuser";
