@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: importstudents.php,v 1.2 2002/01/16 22:08:26 basmati Exp $
+// $Id: importstudents.php,v 1.3 2002/08/28 16:49:28 basmati Exp $
 
 //Check security
 $LoginType = "";
@@ -112,12 +112,19 @@ while (!feof($fp)){
 
 
  //Start creating the SQL query that we'll use to populate the database...
+
+ if ($stuff[4] == "") {
+	$did = 0;
+    } else {
+	$did = $stuff[4];
+ }
  $sql = "$verbphrase PERSONAL SET
      $addphrase
      sid = $stuff[0],
      last =  $q$stuff[1]$q,
      first = $q$stuff[2]$q,
      grade = $stuff[3],
+     did = $did,
      schoolid = $q$schoolid$q
      $wherephrase
      ;";
