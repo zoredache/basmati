@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: showreportcard.php,v 1.2 2001/11/01 20:51:27 basmati Exp $
+// $Id: showreportcard.php,v 1.3 2002/09/27 23:13:22 basmati Exp $
 
   $LoginType = "";
 
@@ -208,6 +208,10 @@ Updated</b></td><td><b>Grade</b></td><td><b>Gradebook</b></td><td><b>Class<br>No
     echo("</tr>");
   }
   echo ("</table>");
+
+  if ($enableplugins == 1){
+	include("plugins.php");
+  }
 
 
 function fnOpenDB(){
