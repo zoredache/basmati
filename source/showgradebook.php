@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: showgradebook.php,v 1.4 2002/03/12 18:30:32 basmati Exp $
+// $Id: showgradebook.php,v 1.5 2002/03/26 20:53:06 basmati Exp $
 
  $LoginType = "";
  session_start();
@@ -67,9 +67,11 @@
      odbc_free_result($sql_statement);
     }
    }
+   
 
 
   $sql_query = "SELECT * from COURSEINFO inner join GMSCORES on COURSEINFO.cc = GMSCORES.cc where GMSCORES.sid = "  . $sid. " and GMSCORES.schoolid = '" . $school . "' and GMSCORES.cc = '" . $cc . "';";
+  
 
   $mysql_query = "SELECT COURSEINFO.cc as cc, COURSEINFO.coursename as coursename, COURSEINFO.facultyname as facultyname,
                  COURSEINFO.modified as 'modified', GMSCORES.grade as grade, GMSCORES.percent as percent, COURSEINFO.email as email, GMSCORES.comments as comments,
@@ -84,6 +86,8 @@
   $link = odbc_connect($databasename,$datausername,$datapassword);
   $sql_statement = odbc_prepare($link,$sql_query);
   $sql_result = odbc_execute($sql_statement);
+  
+  
   if (odbc_num_rows($sql_statement)!=0){;
    while (odbc_fetch_row($sql_statement)){
     $row_n++;
@@ -100,6 +104,7 @@
     $grade_array["email"][$i] = $hyperlink;
 
   } //If numrows != 0
+  
 
 
 
@@ -145,6 +150,7 @@ if ($datamethod == "mysql"){
   $student_scores = explode(chr(169),$grade_array[scores][1]);
   $nrows = count($assign_names);
 
+	
 
 //Start drawing page...
   if (eregi("-background",$grade_array[misc][1])){
@@ -169,6 +175,8 @@ if ($datamethod == "mysql"){
 	echo "<table bgcolor=white border=1><tr><td><b>Instructor's Notes:</b><br>$notes</td></tr></table>";
 	echo "</center></blockquote>";
   }
+} ///ADDED PAREN!
+
 
 //Also display any pre-defined comments stored in the COMMENTLIST table...
 if ($datamethod == "mysql"){
@@ -191,12 +199,13 @@ if ($datamethod == "mysql"){
 				 $notes = mysql_result($sql_result,$i,commenttxt);
 				 $comlist .= "$notes<br>";
 			 }
-		 $comlist .= "</center></blockquote></td></tr></table>";
+			$comlist .= "</center></blockquote></td></tr></table>";
          }
-	  }
-	}
+	 }
 
-
+}
+ 
+    
  fnCloseDB();
 
 
@@ -269,7 +278,7 @@ if ($datamethod == "mysql"){
 
 echo "</blockquote>";
 
-}
+
 
 
 //Show the "canned" comments unless '-comlist' appears in MISC3
