@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: printgradebookblocks.php,v 1.1 2001/12/17 19:57:48 basmati Exp $
+// $Id: printgradebookblocks.php,v 1.2 2001/12/17 22:22:42 basmati Exp $
 
  $LoginType = "";
  session_start();
@@ -34,7 +34,9 @@
  $CurrentSID = $HTTP_SESSION_VARS['CurrentSID'];
  $sid = $HTTP_SESSION_VARS['sid'];
  $StorageDir = $HTTP_POST_VARS['storageloc'];
-
+ $pagesperblock = 25;
+ $currentpage = 0;
+ $pagecounter = 0;
 
  include ("../basmaticonstants.php");
 
@@ -66,6 +68,7 @@ while (!feof($fp)){
   $row_n = 0;
   $school = $SchoolID;
   $output = "";
+  $pagenumber++;
 
  //determine school...
   $sql_query = "SELECT * from SCHOOLS where school_id = '" . $school ."'";
@@ -140,13 +143,15 @@ if ($datamethod == "mysql"){
 //Start drawing page...
 
 
-  $output .= "<body background = white>";
-  $output .= "<font size=+1 color=black>";
+  $output .= "<body background = white><font face=arial>";
+  $output .= '<STYLE TYPE="text/css"> P.breakhere {page-break-before:always} </STYLE>';
+  $output .= '<P CLASS="breakhere">';
+  $output .= "<font  color=black>";
   $output .= "<center><b>Basmati Gradebook Report for $firstname $lastname</b><br>";
-  $output .= "</font>Grade: $gradelevel<br>";
-  $output .= "Student ID:  $sid</br>";
-  $output .= "<i>$schoolname</i>";
-  $output .= "<hr width=25% align=center>";
+  $output .= "<font size=-1><i>$schoolname</i><br>";
+  $output .= "Grade: $gradelevel  -- ";
+  $output .= "Student ID:  $sid<font></br>";
+  $output .= "<p>";
 
 
 
@@ -161,13 +166,15 @@ if ($datamethod == "mysql"){
       $grade_array[percent][1] = "" . $grade_array[percent][1] . "%";
     }
 
-  $output .= ("<center>");
-  $output .= "Course Title:  <b>". $grade_array[coursename][1]."</b></font><br>";
+  $output .= ("<center><font size=-1>");
+  $output .= "Course Title:  <b>". $grade_array[coursename][1]."</b><br>";
   $output .= "Instructor:  <b>$hlink</b><br>";
   $output .= "Phone:  <b>".$grade_array[phone][1]."</b><br>";
-  $output .= "Last Updated: <b>".$grade_array[modified][1]."</b><p>";
+  $output .= "Last Updated: <b>".$grade_array[modified][1]."</b>";
+  $output .= "<p>";
+
   $output .= "Current Grade: <b>" . $grade_array[grade][1]."</b><br>";
-  $output .= "Current Percent: <b>" . $grade_array[percent][1] . "</b><p>";
+  $output .= "Current Percent: <b>" . $grade_array[percent][1] . "</b><p></font>";
 
 
 
@@ -177,10 +184,13 @@ if ($datamethod == "mysql"){
 //Now that we have an array, cycle through and create table... (independent of database)
 
   $output .= "<center>";
-  $output .= "<table border=1 ><tr>";
-  $output .= "<td><b>Assignment</b></td><td><b>Your Score</b></td><td><b>Points <br>Possible</b></td>";
+  //Draw a large table around the inner table...
+  $output .= "<table border = 1><tr><td>";
+  //Now draw the grades table...
+  $output .= "<table border=0 cellpadding=1 cellspacing=1 bordercolor=black><tr>";
+  $output .= "<td><b><font size=-1>Assignment</font></b></td><td><b><font size=-1>Your<br> Score</font></b></td><td><b><font size=-1>Points <br>Possible</b></font></td>";
   if (!eregi("-misc",$grade_array[misc][1])){
-    $output .= "<td><b>Misc.</b></td>";
+    $output .= "<td><b><font size=-1>Misc.</font></b></td>";
   }
   $output .= "</tr>";
 
@@ -199,15 +209,16 @@ if ($datamethod == "mysql"){
 
   for ($i = 0; $i < $nrows-1 ;$i++){
     $output .= "<tr>";
-    $output .= "<td border=1>" . $assign_names[$i] . "</td>";
-    $output .= "<td border=1>" . AddStarofDeath($student_scores[$i]) . "</td>";
-    $output .= "<td border=1>" . $assign_vals[$i] . "</td>";
+    $output .= "<td border=1><font size=-2>" . $assign_names[$i] . "</font></td>";
+    $output .= "<td border=1><font size=-2>" . AddStarofDeath($student_scores[$i]) . "</font></td>";
+    $output .= "<td border=1><font size=-2>" . $assign_vals[$i] . "</font></td>";
     if (!eregi("-misc",$grade_array[misc][1])){
-       $output .= "<td border=1>" . ParseStandards($ealr_names[$i],$grade_array[misc][1]) . "</td>"; //process standards
+       $output .= "<td border=1><font size=-2>" . ParseStandards($ealr_names[$i],$grade_array[misc][1]) . "</font></td>"; //process standards
     }
     $output .= "</tr>";
   }
-  $output .= "</table>";
+  $output .= "</table>"; //Closes the assignment table...
+  $output .= "</td></tr></table>"; //Closes the larger table...
   $output .= "</center>";
 
  $output .= "<table border = 0><tr><td width=100></td><td width=*>";
@@ -215,7 +226,7 @@ if ($datamethod == "mysql"){
  $output .=  "It is not usually possible to simply add the number of points earned and divide ";
  $output .=  "by the total number of points when scores are weighted.  The scores presented in ";
  $output .=  "this table are for information only.<p>";
- $output .=  "An asterisk (<font color=red>*</font>) indicates that this score is missing from the teacher's grade book.  Most likely this indicates ";
+ $output .=  "An asterisk (<font color=black>*</font>) indicates that this score is missing from the teacher's grade book.  Most likely this indicates ";
  $output .=  "that the assignment was never turned into the teacher.  However, in rare occasions it may ";
  $output .= "also indicate that this assignment was not intended to be graded.</font>";
  $output .=  "<p>";
@@ -224,16 +235,30 @@ if ($datamethod == "mysql"){
 
 // echo "$output <hr>";
 
-  //Write the output to a file...
-   $outfilename =    trim($StorageDir) . "gb." . trim($lastname) . "~" . trim($sid) . "~" . trim($cc) . ".html";
-   echo $outfilename . "<hr>";
-   $fwpointer = fopen($outfilename,"w");
-   fputs($fwpointer,$output);
-   fclose($fwpointer);
+  //Write the output to a file... (in groups of pages)
+
+   if ($pagecounter == 0) {
+	   $currentpage++;
+ 	   $outfilename =    trim($StorageDir) . "gb." . trim($currentpage) . ".html";
+	   echo $outfilename . "<hr>";
+	   $fwpointer = fopen($outfilename,"w");
+   }
+
+	   fputs($fwpointer,$output);
+	   $pagecounter++;
+
+   if ($pagecounter == $pagesperblock){
+	   $pagecounter = 0;
+	   fclose($fwpointer);
+   }
 
    $output = "";
 }// End the While from the file-read....  (way up there!)
   echo "Finished.";
+
+  //Now print the last line and close...
+	fclose($fwpointer);
+
 
 
 
@@ -247,7 +272,7 @@ function AddNA($string){
 
 function AddStarofDeath($string){
  if (trim($string) == ""){
-   return "<font color=red ><b>*</b></font>";
+   return "<font color=black ><b>*</b></font>";
  } else {
    return $string;
  }
