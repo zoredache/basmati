@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: facultylogin.php,v 1.4 2002/04/21 07:19:32 basmati Exp $
+// $Id: facultylogin.php,v 1.5 2002/10/21 16:19:42 basmati Exp $
 
  global $school_id;
  $uname = $HTTP_POST_VARS['uname'];
@@ -59,6 +59,9 @@
   fncloseDB();
  //Write the information to a log file...
   writelog("IN-FAC",$uname,$school_id);
+ if ($enablefacultyplugins == 1) {
+	include("facultyplugins.php");
+ }
 
 
 

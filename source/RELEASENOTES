@@ -94,3 +94,11 @@ to plugins.php -- this simply acts as a footer on
 the showreportcard.php page.
 
 
+*** 2002-October-21 ***
+Similar to the enableplugins.php, now the ability exists
+to add plugins to the facultylogin.php page.  To use,
+simply set $enablefacultyplugins = 1 in the basmaticonstants.php
+file and then copy the example_facultyplugins.php file
+to facultyplugins.php.  
+
+

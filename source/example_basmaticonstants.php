@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: example_basmaticonstants.php,v 1.7 2002/09/27 23:13:22 basmati Exp $
+// $Id: example_basmaticonstants.php,v 1.8 2002/10/21 16:19:42 basmati Exp $
 
 //Database Access, etc
 $datamethod = "mysql";  //Set to odbc or mysql depending upon database server
@@ -34,6 +34,7 @@ $logevents = 0;  //  If 1 will log to EVENTLOG table (only if using MySQL)
 $announcement = "Welcome to Basmati!";  //Faculty-level announcement
 $usetextbox = 0; //  If zero, will display list of schools, if 1, will require user to enter school id
 $enableplugins = 0; // If 1, will allow plugins.php to be included within the showreportcard.php file
+$enablefacultyplugins = 0; // If 1, will allow facultyplugins.php to be included within the facultylogin.php file
 $emaildomain = "";  // Leave blank if site will host multiple email domains.
 $localsubnet = "169.204.11%"; //Used for statistics to determine local access
 $enforce_expiration = 0; //Used if expiration dates on faculty accounts should be enforced
