@@ -5,30 +5,62 @@
 <hr>
 <font size=+3>Y</font>ou will need to install a "filter" file so that Grade Machine
 can properly export your grades to Basmati.  This is a simple process and only need
-to be performed once for each computer that you use.  Follow the steps below:
+to be performed once for each computer that you use.  Because there are several versions
+of Grade Machine, you will need to install the version of the filter that is
+specific to your version.
 <ol>
-<li>Click <a href="bas_os.flt">here</a> to download the filter file (called bas_os.flt).
+<li>Consult the table below and select the correct version of the filter.  If you are using
+Netscape, you may need to right-click (or hold the mouse down if using a Mac) and choose "Save Link As..."
+<p>
+<table border=1>
+<tr><th>Grade Machine<br>Version/Platform</td><th>Windows Version</th><th>Mac Version</th><th>Notes</th></tr>
+<tr><td>Version 6.5 - 6.7</td><td><a href="bas_65os.flt">Download</a></td><td><a href="bas_65os.flt">Download</a></td>
+<td>It is highly recommended that you upgrade Grade Machine to the latest release of version 6.8.</td></tr>
+<tr><td>Version 6.8</td>
+    <td><a href=bas_68os.flt>Download</a></td>
+    <td><a href=bas_68os.flt>Download</a></td>
+    <td>Some bugs exist in specific sub-versions of Grade Machine.  Please requst version 6.8.9 for Windows and version 6.8.3 for the Mac
+        to be certain that everything works properly.  There have been reports of some Windows software conflicting with the Grade Machine's
+	abililty to export.  If you encounter these problems, please  <a href=bas_68a.flt>download</a> this version instead.  You will be
+	required to provide the name of each export file.</td>
+</tr>
+<tr><td>Version 6.9</td>
+    <td><a href=bas_69os.flt>Download</a></td>
+    <td><a href=bas_69os.flt>Download</a></td>
+    <td>I strongly recommend the use of version 6.8.9 (Windows) or version 6.8.3 (Mac) for best
+        results... however, these filters should work fine for version 6.9.</td>
+</tr>    
+</table>
+<p>
 <li>Your web-browser should prompt you to save this file.  If given the choice, save this
 file to the FILTERS folder within your Grade Machine folder.
 <li>If you weren't given a choice where you should save the file, locate the file and then
 copy it to the FILTERS folder within your Grade Machine folder.
 </ol>
-This filter will export all of your assignments for all grading periods within your Grade
-Machine class.  Other filters are available that will allow you to specify which assignments
-and grading periods should be exported.  Here is the complete list of filters:
+It is possible to "fine-tune" your filter such that very specific information
+is exported via Grade Machine.  Here are some suggestions if you'd like to 
+customize your filter:
 <ul>
-<li><b><a href="bas_os.flt">bas_os.flt</a></b> --  This is the original filter which will export
-all assignments from all grading periods.  In Grade Machine's filter list, this is seen as Basmati (OS).
-<li><b><a href="bas_osa.flt">bas_osa.flt</a></b> --  This filter will ask you which assignments
-you would like to export.  In Grade Machine's filter list, this is seen as Basmati (OS-Assign Ask).
-<li><b><a href="bas_impt.flt">bas_impt.flt</a></b> --  This is an IMPORT filter which can be used in conjunction with Basmati's "Get Passwords" page.  If you save the contents of the "importable" passwords page to a text file, you can use this filter to import passwords back into Grade Machine.  This filter will import into the MISC 2. column of the student window in Grade Machine.
-<li><b><a href="bas_65os.flt">bas_65os.flt</a></b> -- This filter can be used if you are using Grade Machine version 6.5 or later.  
-
-
+<li>From the File menu, select Export
+<li>Select the Basmati Filter and make a copy of it
+<li>Provide a new filename and rename your filter to whatever you'd like
+<li>Select your new filter and click the "Edit" button
+<li>From the list on the right, you may choose certain features to modify (such as Body: Student: Scores or Body: Student: Grade)
+<li>After modifying your filter, save your changes
 </ul>
-<hr>
 <p>
+<hr>
+<b>Issues and Resolutions:</b>
+<p>
+If you experience the following difficulties, Misty City has some recommendations for you.
+<p>
+<i>I'm using version 6.9 for the Mac -- when I export to Basmati, none of the assignments appear
+in the table.</i>  Resolution:  Be certain you're using the version 6.9 filter from the table above. 
+If that doesn't work, try editing the filter.  Instead of the All Assignments in Body Range, change
+it to Enter Assignment Range at Export Time.  At time of export, teacher will be prompted to enter
+start and end number of assignment for which scores are to be exported.
 </font>
-<font size = -2>©2000, James Bassett (all rights reserved)</font>
+<hr>
+<font size = -2>Copyright 2001, James Bassett</font>
 </body>
 </html>
