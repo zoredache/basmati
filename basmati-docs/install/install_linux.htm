@@ -62,10 +62,8 @@ I.  Installing Basmati on Linux/Unix Based Systems
     proceding further.
 
     Before downloading the files via CVS, change your working directory to
-    the document-root directory of your web-server (typically, this is
-    located at /var/www/htdocs or simply /var/www -- this will vary with
-    different Linux distributions).  Once you're in the correct directory,
-    issue the following shell commands:
+    a temporary working directory.
+
 	<b>
     cvs -d:pserver:anonymous@cvs.basmati.sourceforge.net:/cvsroot/basmati login</b>
     	(simply push "ENTER" to continue)<b>
@@ -81,6 +79,12 @@ I.  Installing Basmati on Linux/Unix Based Systems
     	(simply push "ENTER" to continue)<b>
     cvs -d:pserver:anonymous@cvs.basmati.sourceforge.net:/cvsroot/basmati update
     </b>
+
+    The files and directories in the "source" directory contain the Basmati
+    PHP scripts that should be transferred to your web-server's directory.  
+    This can typcially be done by issuing a "mv" command into document-root
+    directory of your web-server (usually /var/www/html or /var/www).
+    For example:  <b>mv source /var/www/basmati</b>.
 
     C.  Create a MySQL Database for Basmati
 
