@@ -1,0 +1,44 @@
+<html><head>
+<!-- ------------------------------------------------------------------ -->
+<!--  Basmati -- Version 2.0P                                           -->
+<!-- ------------------------------------------------------------------ -->
+<!-- Copyright (C) 2000-2001 James B. Bassett (basmatisoftware@msn.com) -->
+<!-- ------------------------------------------------------------------ -->
+<!-- This program is free software.  You can redistribute in and/or     -->
+<!-- modify it under the terms of the GNU General Public License        -->
+<!-- Version 2 as published by the Free Software Foundation.            -->
+<!-- ------------------------------------------------------------------ -->
+<!--  Authors: James B. Bassett - basmatisoftware@msn.com               -->
+<!-- ------------------------------------------------------------------ -->
+<!-- $Id: importcomments.htm,v 1.1 2002/03/12 18:31:08 basmati Exp $ -->
+<title>Import Passwords from TSV File</title>
+</head>
+<body>
+<h2>
+Import Comment List from Tab-Separated File
+</h2>
+<hr>
+This page will import a set of passwords from a TSV formatted file into the database.   The structure of the file can be found below.
+<br><i>Warning:</i>  All previous comments for the given school will be deleted!
+<p>
+<form method=post action=importcomments.php ENCTYPE="multipart/form-data">
+Please submit your TSV Comment file...
+<br> <input type=file name="userfile" value="Locate File">
+<br>
+School ID: <input type=text name=schoolid>
+<p>
+Process this file...
+<br>
+<input type=submit value="Process this File">
+<p>
+<hr>
+<b>File Structure</b>:
+<br>The following fields should exist in this file (in the order listed below):
+<pre>
+Comment Number
+Comment Text
+</pre>
+</body>
+</html>
+
+
