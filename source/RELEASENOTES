@@ -79,3 +79,18 @@ instructor can get additional details.
 *** 2002-April-27 ***
 Added a table on facultyloginform.php to make it look
 better.
+
+
+*** 2002-September-27 ***
+I wanted to be able to display student fine information
+by using Basmati... rather than changing the structure
+of the database, it is now possible to enable "plugins"
+to the core of Basmati so that separate modules may
+be added (using separate databases) -- it's still
+possible to get at the session data if the plugins
+are outside of the Basmati web-directory.  To use,
+simply set $enableplugins=1 and copy the example_plugins.php
+to plugins.php -- this simply acts as a footer on
+the showreportcard.php page.
+
+
