@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: showgradebook.php,v 1.3 2001/11/01 20:51:27 basmati Exp $
+// $Id: showgradebook.php,v 1.4 2002/03/12 18:30:32 basmati Exp $
 
  $LoginType = "";
  session_start();
@@ -72,7 +72,7 @@
   $sql_query = "SELECT * from COURSEINFO inner join GMSCORES on COURSEINFO.cc = GMSCORES.cc where GMSCORES.sid = "  . $sid. " and GMSCORES.schoolid = '" . $school . "' and GMSCORES.cc = '" . $cc . "';";
 
   $mysql_query = "SELECT COURSEINFO.cc as cc, COURSEINFO.coursename as coursename, COURSEINFO.facultyname as facultyname,
-                 COURSEINFO.modified as 'modified', GMSCORES.grade as grade, GMSCORES.percent as percent, COURSEINFO.email as email,
+                 COURSEINFO.modified as 'modified', GMSCORES.grade as grade, GMSCORES.percent as percent, COURSEINFO.email as email, GMSCORES.comments as comments,
                  COURSEINFO.assignlist as assignlist, COURSEINFO.ealr as ealr,GMSCORES.scores as scores, COURSEINFO.assignvals as assignvals, COURSEINFO.phone as phone,
                  COURSEINFO.misc as misc
                  FROM COURSEINFO left join GMSCORES on COURSEINFO.cc = GMSCORES.cc and COURSEINFO.schoolid = GMSCORES.schoolid where GMSCORES.cc = '$cc' and GMSCORES.sid = "  . $sid. " and GMSCORES.schoolid = '" . $school . "' order by GMSCORES.cc;";
@@ -169,6 +169,34 @@ if ($datamethod == "mysql"){
 	echo "<table bgcolor=white border=1><tr><td><b>Instructor's Notes:</b><br>$notes</td></tr></table>";
 	echo "</center></blockquote>";
   }
+
+//Also display any pre-defined comments stored in the COMMENTLIST table...
+if ($datamethod == "mysql"){
+	$countcomment = 0;
+	$commentlistarray = array_unique(explode(",",$grade_array[comments][1]));
+	for ($i = 0; $i < sizeof($commentlistarray); $i++){
+		if (trim($commentlistarray[$i] != "")) {
+			$commentlist .= $commentlistarray[$i] . ",";
+		}
+	}
+	//Strip off final comment
+	$commentlist = substr($commentlist,0,-1);
+	if ($commentlist != "") {
+		$sqlgetcom = "SELECT * FROM COMMENTLIST where commentnum in ($commentlist);";
+		fnOpenDB();
+		$sql_result = mysql_query($sqlgetcom,$link);
+	    if (mysql_num_rows($sql_result) > 0){
+			$comlist =  "<table bgcolor=white border=1><tr><td><b>Instructor's Comments:</b><br><blockquote><center>";
+			 for ($i = 0; $i < mysql_num_rows($sql_result); $i++){
+				 $notes = mysql_result($sql_result,$i,commenttxt);
+				 $comlist .= "$notes<br>";
+			 }
+		 $comlist .= "</center></blockquote></td></tr></table>";
+         }
+	  }
+	}
+
+
  fnCloseDB();
 
 
@@ -241,6 +269,12 @@ if ($datamethod == "mysql"){
 
 echo "</blockquote>";
 
+}
+
+
+//Show the "canned" comments unless '-comlist' appears in MISC3
+if (!eregi("-comlist", $grade_array[misc][1])){
+	echo $comlist;
 }
 
 

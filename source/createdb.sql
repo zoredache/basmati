@@ -94,6 +94,14 @@ CREATE TABLE EVENTLOG (
     LastUpdate		TIMESTAMP
     );		
 
+CREATE TABLE COMMENTLIST(
+	id			INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	schoolid	varchar(16),
+	commentnum	int,
+	commenttxt	mediumtext,
+	LastUpdate	TIMESTAMP
+);
+
 CREATE INDEX client_id_index ON CLIENTS(client_id);
 CREATE INDEX courseinfo_cc_index ON COURSEINFO(cc);
 CREATE INDEX courseinfo_schoolid_index ON COURSEINFO(schoolid);

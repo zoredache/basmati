@@ -56,3 +56,14 @@ for improved security when multiple districts are
 hosted on the same server.
 
 
+*** 2002-March-12 ***
+A request from Friday Harbor School District to
+include the ability to print standard numerical
+comments from Grade Machine or EGP.  Developed
+pages to import TSV comment lists, and display
+them on the student gradebook reports.  This requires
+that the createdb.sql program be run to
+use the new COMMENTLIST tables.  It is possible
+to turn this feature off (on a teacher-by-teacher
+basis) by adding "-comlist" to the misc 3 field.
+
