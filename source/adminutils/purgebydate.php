@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: purgebydate.php,v 1.1 2002/01/22 18:27:04 basmati Exp $
+// $Id: purgebydate.php,v 1.2 2004/08/30 15:04:18 basmati Exp $
 
 //Check security
 $LoginType = "";
@@ -31,6 +31,11 @@ $LoginType = $HTTP_SESSION_VARS['LoginType'];
 $schoolid = $HTTP_POST_VARS['schoolid'];
 $purgedate = $HTTP_POST_VARS['purgedate'];
 $act = $HTTP_POST_VARS['act'];
+$deleteall = 0;
+
+if ($schoolid == "***ALL***"){
+	$deleteall = 1;
+}
 
  require("../basmaticonstants.php");
 
@@ -62,7 +67,13 @@ $nl = chr(13);
 if ($act == "confirm"){
 
  //Remove the old record...
-   $sql = "SELECT * from COURSEINFO where LastUpdate < '$purgedate' and schoolid = '$schoolid';";
+   if ($deleteall == 1) {
+
+	   $sql = "SELECT * from COURSEINFO where LastUpdate < '$purgedate';";
+   } else {
+	   $sql = "SELECT * from COURSEINFO where LastUpdate < '$purgedate' and schoolid = '$schoolid';";
+
+}
    $resource = mysql_query($sql,$link);
    $n = mysql_num_rows($resource);
    if ($n > 1) echo "<b>You are about to delete the following classes:</b>";
@@ -90,19 +101,37 @@ if ($act == "confirm"){
 if ($act == "doit"){
 
  //Remove the old record...
-   $sql = "SELECT * from COURSEINFO where LastUpdate < '$purgedate' and schoolid = '$schoolid';";
+   if ($deleteall == 1) {
+
+	   $sql = "SELECT * from COURSEINFO where LastUpdate < '$purgedate';";
+   } else {
+
+	   $sql = "SELECT * from COURSEINFO where LastUpdate < '$purgedate' and schoolid = '$schoolid';";
+
+  }
+	
+
    $resource = mysql_query($sql,$link);
    $n = mysql_num_rows($resource);
    if ($n > 1) echo "<b>The following classes have been deleted:</b><br>";
    for ($i = 0; $i < $n; $i++) {
  	$cc = mysql_result($resource,$i,cc);
-	$sql_del = "DELETE from GMSCORES where cc = '$cc' and schoolid = '$schoolid';";
+	if ($deleteall == 1) {
+		$sql_del = "DELETE from GMSCORES where cc = '$cc';";
+	} else {
+		$sql_del = "DELETE from GMSCORES where cc = '$cc' and schoolid = '$schoolid';";
+	}		
 	echo "$cc at $schoolid <br>";
 	$delresource = mysql_query($sql_del,$link);
    }
    //Now delete the all of the courseinfo...
-   $sqldel = "DELETE from COURSEINFO where LastUpdate < '$purgedate' and schoolid = '$schoolid';";
-   $resource = mysql_query($sqldel,$link);
+   if ($deleteall == 1) {
+   	$sqldel = "DELETE from COURSEINFO where LastUpdate < '$purgedate';";
+   } else {
+   	$sqldel = "DELETE from COURSEINFO where LastUpdate < '$purgedate' and schoolid = '$schoolid';";
+
+   }   
+$resource = mysql_query($sqldel,$link);
    echo "<font color=red size=+1>DONE!</font>";
 
 } //$act = doit
