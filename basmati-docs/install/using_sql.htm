@@ -1,0 +1,157 @@
+<html><head>
+<title>Under Construction</title>
+</head>
+<body bgcolor=white>
+<font face=verdana,arial size=-1>
+<h3>
+Using SQL Queries
+</h3>
+</center>
+<hr>
+SQL (or Structured Query Language) is a powerful language used to create, alter, or delete 
+components of a database.  There are probably thousands of resources on the Web that will teach
+you how to use SQL.  I will provide you with a few simple queries to do day-to-day administrative
+tasks, but you are encouraged to look elsewhere to learn more powerful queries.	 It is important
+to understand what you're doing when submitting a query -- you can easily destroy an entire database
+in the matter of seconds with a few words of SQL.
+<p>
+Before looking at SQL, it is important to understand the structure of the Basmati database.  The chart
+below provides a snapshot of the tables and fields within the database:
+<p>
+<table border=1>
+<tr bgcolor=yellow>
+<th>Tables:</th>
+<th>CLIENTS</th>
+<th>COURSEINFO</th>
+<th>GMSCORES</th>
+<th>GROUPS</th>
+<th>PERSONAL</th>
+<th>SCHOOLS</th>
+</tr>
+<td valign=top>Fields:
+</td>
+<td valign=top>
+<ul>
+<li>client_id
+<li>client_pw
+<li>client_school
+<li>client_expdate
+<li>client_fullname
+<li>webinfo
+<li>webinfodate
+</ul>
+</td>
+<td valign=top>
+<ul>
+<li>cc
+<li>schoolid
+<li>facultyname
+<li>facultycode
+<li>period
+<li>email
+<li>phone
+<li>misc
+<li>coursename
+<li>assignlist
+<li>assignvals
+<li>ealr
+<li>modified
+<li>type
+</ul>
+</td>
+<td valign=top>
+<ul>
+<li>sid
+<li>cc
+<li>schoolid
+<li>scores
+<li>percent
+<li>grade
+<li>comments
+</ul>
+</td>
+<td valign=top>
+<ul>
+<li>groupname
+<li>groupsids
+<li>grouppw
+<li>schoolid
+</ul>
+</td>
+<td valign=top>
+<ul>
+<li>sid
+<li>schoolid
+<li>last
+<li>first
+<li>grade
+<li>password
+<li>did
+<li>emailaddress
+</ul>
+</td>
+<td valign=top>
+<ul>
+<li>school_id
+<li>school_name
+<li>school_state
+<li>school_city
+<li>school_url
+</ul>
+</td>
+</tr>
+</table>
+<p>
+A more complete description of each field is pending.
+<p>
+<ul>
+<li>
+One of the most useful queries is the SELECT query -- which allows you to easily view the
+contents of your database.  The syntax for this query is very straightforward.  Several
+examples are shown below:
+<center>
+<i>
+SELECT * FROM COURSEINFO;
+<br>
+SELECT * FROM COURSEINFO WHERE CC = 'CAL50203';
+<BR>
+SELECT * FROM COURSEINFO ORDER BY CC;
+<BR>
+SELECT FACULTYNAME, EMAIL FROM COURSEINFO ORDER BY EMAIL;
+</i>
+</center>
+<br>
+Get the picture?  The generic form for the SELECT statement is SELECT {fields or *} FROM {table} WHERE {fieldname} {comparison} {value}.
+<p>
+<li>
+Perhaps the next most useful statement is the DELETE verb.  Be very careful with this one -- if you don't qualify
+what you're deleting, you'll probably end up deleting the entire table!  Here are some examples:
+<center><i>
+DELETE FROM COURSEINFO;  </i>(Careful!  This will delete the entire table!)<i>
+<br>
+DELETE FROM COURSEINFO WHERE CC = 'CAL50203';
+<p>
+</center>
+</i>
+<li>
+To modify an existing field in a table, use the UPDATE statement.  For example, let's suppose
+that we need to change the name of the course (coursename) corresponding the the coursecode 'CAL50203'.
+The SQL statement used to do this would be...
+<center>
+<i>
+UPDATE COURSEINFO SET coursename = 'newemailaddress@here.com' WHERE CC = 'CAL50203';
+</i>
+</center>
+In practice, there is no reason to actually do this -- when you send an export file to Basmati, any changes (such as email address)
+should automatically be reflected.
+<p>
+<li>
+Finally, you can use the INSERT statement to add a new record to a table.  Here's a brief example (adding a new record to the CLEINTS table):
+<center>
+<i>
+INSERT INTO CLIENTS (client_id, client_pw, client_school, client_expdate, client_fullname) VALUES
+('me@here.com', 'password', 'HS', '8/4/2002', 'Mr. Me.');
+</i></center>
+<p>
+</ul>
+Again, please consult many of the excellent references on SQL for more details (and more powerful queries).

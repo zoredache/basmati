@@ -1,0 +1,177 @@
+<html><head>
+
+<title>Installing Basmati with Microsoft IIS</title>
+
+</head>
+
+<body bgcolor=white>
+
+<font face=verdana,arial size=-1>
+
+<h3>
+
+Installing Basmati with Microsoft's IIS and ODBC
+
+</h3>
+
+</center>
+
+<hr>
+
+<i>Disclaimer:  </i>Basmati<i> is free software.  The authors are not responsible
+
+for any damage that you may incur by installing this software on your systems nor
+
+are they responsible for any misuse of this system.  Please
+
+read the enclosed license agreement for further details.</i>
+
+<p>
+
+This document is intended for someone familiar with Microsoft's IIS (version 4.0 or 5.0).  If
+
+you have little or no experience with IIS, you may need to contact your Basmati distributor for
+
+extended installation support.  I would also strongly suggest the use of MySQL as the
+database server rather than using ODBC.  Consult the Linux installation guide for details
+on configuring the software to run with MySQL instead of ODBC.  As of July, 2001, I will
+no longer be developing additional components for the ODBC version... there are already
+several features available only in the MySQL version.
+
+<p>
+
+This version
+
+of Basmati uses PHP as its primary development language -- this enables development on multiple
+
+platforms (including Windows [IIS and Apache] and Linux).  You are welcome to modify the source
+
+code to meet your particular security needs or use some of the security features of your web-server.
+
+You are entirely responsible for securing your web-sites.
+
+<p>
+
+Here are the steps to install Basmati...
+
+<ol>
+
+<li>Obtain PHP from <a href=http://www.php.net>http://www.php.net</a>.   Download the latest stable version and install according to the directions provided
+
+by PHP.  To test that the installation was successful, create a text-document in a web-shared folder
+
+(call it <i>test.php</i>)
+
+and insert the following code into it:
+
+<font size=+0><pre> &lt? phpinfo() ?&gt </pre></font>
+
+Open this file <i>through your web server</i> (e.g., http://localhost/test.php).  If you see
+
+a page with <i>LOTS</i> of information describing your PHP capabilities, you were successful.  If not, please
+
+consult the FAQs or online help at www.php.net.  If everything worked, you may delete this test file.<p>
+
+<li>
+
+Download the Basmati script files and unzip them into a temporary directory.<p>
+
+<li>Before proceeding any further -- it is time to change the administrator password!  Locate the script
+
+file called <i>example_basmaticonstants.php</i> and make a copy of
+this file.  Rename the copy to "basmaticonstants.php".  Open this file with any text editor (notepad will do the job).  Locate the
+
+following 2 lines of code:
+
+<font size=+0><pre>
+
+$admuser = "adminuser";
+
+$admpass = "adminpass";
+
+</pre></font>
+
+Change the "adminuser" username and "adminpass" password to whatever you like, but please -- just change them!  Be
+
+certain that both are enclosed in quotes.<p>
+
+You will also want to modify the line <pre><font size=+0>$datamethod = "mysql"</font>; </pre>so that it says <pre>
+<font size=+0>$datamethod="odbc";</pre></font>
+This will instruct Basmati to use ODBC data-sources instead of a MySQL database server.
+<p>
+
+
+<li>Basmati can be installed into a single directory if you desire.  For improved security, however, it is a good
+
+idea to either secure administrator and faculty related files either using NTFS or by creating separate web-shares.  For more
+
+details, contact your Basmati distributor.  Create a new directory and place all of the Basmati files <b>except</b> basmatidb.mdb
+
+into this directory.  Assign appropriate permissions to this directory so that an anonymous web-user has read-only priveleges to
+
+these files.
+
+
+
+
+
+</center><p>
+
+<li>
+
+Create a web-alias for this directory.  Be certain that PHP functionality
+
+is added to each of these directories.  (If necessary, you can test PHP functionality by repeating the test in step 1.)
+
+I strongly encourage the use of SSL on this alias to further secure your entire system.  If you know how to implement it (and can
+
+obtain a security certificate), do so!
+
+<p>
+
+<li>Next, you'll want to create a folder on your server that <b>cannot</b> be accessed via the web <b>or</b> your network.
+
+This folder will contain the database file which should be secured from public access.
+
+Copy the file "basmatidb.mdb" into this folder.  This file (basmatidb.mdb) is simply a Microsoft Access (97) database
+
+file and can be opened with MS Access.  If you don't own a copy of MS Access (or don't want it on your server), don't despair,
+
+you won't need it!
+
+<p>
+
+<li>
+
+Create a folder called "tmp" on the <i>root</i> of the drive that contains the PHP script files.  For example, if your
+
+files are on the D:\ drive, you need to create the folder "D:\tmp".  This folder is used to store temporary session
+
+information from the users.  You may need to check this folder periodically
+
+for build-up of temporary files and remove them.  PHP is supposed to flush these files out on its own, but I have seen
+
+mixed results.
+
+<p>
+
+<li>Finally, you'll want to create an ODBC connection to this database file (basmatidb.mdb).  From control panel, locate the ODBC Data tool (if
+
+you're using Windows 2000, you'll find it in the Administrative Tools as "Data Sources (ODBC)").  Once the ODBC Data Administrator tool is
+
+open, click on the SYSTEM DSN tab.  Click the Add button.  Choose the "Microsoft Access Driver (*.mdb)"  (be sure you use the
+
+correct language).  A dialog box will appear.  The Data Source Name that you should use is "basmatidb" -- this can be changed later if you wish... just be
+
+certain to edit the "basmaticonstants.php" file if you decide to use a different name.  Then, click the "Select" button in the Database section.
+
+Locate the "basmatidb.mdb" file.  Click OK (twice).<p>
+
+<li>That's it!  You've installed Basmati on your system.  Your next step is to create a school account and faculty login-accounts and use
+
+your electronic gradebook to post grades to the site -- this signals a new set of instructions!
+
+</ol>
+
+<hr>
+
