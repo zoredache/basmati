@@ -1,0 +1,44 @@
+<html><head>
+<!-- ------------------------------------------------------------------ -->
+<!--  Basmati -- Version 2.0P                                           -->
+<!-- ------------------------------------------------------------------ -->
+<!-- Copyright (C) 2000-2001 James B. Bassett (basmatisoftware@msn.com) -->
+<!-- ------------------------------------------------------------------ -->
+<!-- This program is free software.  You can redistribute in and/or     -->
+<!-- modify it under the terms of the GNU General Public License        -->
+<!-- Version 2 as published by the Free Software Foundation.            -->
+<!-- ------------------------------------------------------------------ -->
+<!--  Authors: James B. Bassett - basmatisoftware@msn.com               -->
+<!-- ------------------------------------------------------------------ -->
+<!-- $Id: purgebydate.htm,v 1.1 2002/01/22 18:27:04 basmati Exp $ -->
+<title>Purge By Date</title>
+</head>
+<body>
+<h2>
+Purge Classes by Date
+</h2>
+<hr>
+This page will delete all class records before a specified date.  
+Please provide a date and a schoolid for the purge operation.
+<p>
+
+
+<form method=post action=purgebydate.php>
+<br>School ID: <input type=text name=schoolid>
+<br>Purge Date: (YYYYMMDD) <input type=text name=purgedate value="20010911">
+<input type=hidden name=act value="confirm">
+<p>
+
+<br>
+<input type=submit value="Purge Classes">
+<p>
+<hr>
+</form>
+
+
+
+
+</body>
+</html>
+
+
