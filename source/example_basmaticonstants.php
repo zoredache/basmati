@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: example_basmaticonstants.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: example_basmaticonstants.php,v 1.2 2001/10/10 03:30:06 basmati Exp $
 
 //Database Access, etc
 $datamethod = "mysql";  //Set to odbc or mysql depending upon database server
@@ -39,5 +39,5 @@ $admuser = "adminuser";
 $admpass = "adminpass";
 
 //!!!!Important...
-// Please make certain NOTHING is after the ?> below !
+// Please make certain NOTHING is after the line below!
 ?>
