@@ -1,0 +1,242 @@
+<html><head>
+
+<title>Installing Basmati on Linux OS</title>
+
+</head>
+
+<body bgcolor=white>
+
+<font face=verdana,arial size=-1>
+
+<h3>
+
+Installing Basmati on Linux/Unix
+
+</h3>
+
+</center>
+
+<hr>
+
+<i>Disclaimer:  </i>Basmati<i> is free software.  The authors are not responsible
+
+for any damage that you may incur by installing this software on your systems nor
+
+are they responsible for any misuse of this system.  Please
+
+read the enclosed license agreement for further details.</i>
+
+<p>
+</font>
+<pre>
+Table of Contents
+   I.  Installing Basmati on Linux/Unix Based Systems
+    	A.  System Requirements
+        B.  Download Source Files
+        C.  Create a MySQL Database for Basmati
+        D.  Copy and Configure example_basmaticonstants.php
+        E.  Testing the Installation
+
+   II.	A Few Notes on Security
+    	A.  Use of register_globals
+        B.  Use of SSL
+        C.  Requiring Authentication for Admin
+
+----------------------------------------------------------------------------------
+I.  Installing Basmati on Linux/Unix Based Systems
+
+    A.  System Requirements
+
+    Basmati uses PHP version 4.0.3 or greater (www.php.net) and MySQL version
+    3.22 or greater (www.mysql.com).  Both of these should be operational before
+    proceding.  Please consult the documentation from these vendors for
+    installation procedures.  Some distributions of Linux will already have
+    these components installed and functional.
+
+    B.  Download Source Files
+
+    The source-files for Basmati can be obtained from basmati.sourceforge.net
+    (or http://sourceforge.net/projects/basmati/) -- however, I strongly
+    recommend the use of CVS to download the files and keep them up-to-date.
+    You will need to be certain that CVS is installed on your system before
+    proceding further.
+
+    Before downloading the files via CVS, change your working directory to
+    the document-root directory of your web-server (typically, this is
+    located at /var/www/htdocs or simply /var/www -- this will vary with
+    different Linux distributions).  Once you're in the correct directory,
+    issue the following shell commands:
+	<b>
+    cvs -d:pserver:anonymous@cvs.basmati.sourceforge.net:/cvsroot/basmati login</b>
+    	(simply push "ENTER" to continue)<b>
+    cvs -d:pserver:anonymous@cvs.basmati.sourceforge.net:/cvsroot/basmati co basmati
+    </b>
+    This will create a new folder within your web-server's document-root
+    folder called "basmati".  All of the source files and folders are contained
+    within this folder.  As upgrades are released, you'll be able to issue
+    the following command to obtain the latest updates (you need to be in
+    the /basmati directory before issuing these commands):
+    <b>
+    cvs -d:pserver:anonymous@cvs.basmati.sourceforge.net:/cvsroot/basmati login </b>
+    	(simply push "ENTER" to continue)<b>
+    cvs -d:pserver:anonymous@cvs.basmati.sourceforge.net:/cvsroot/basmati update
+    </b>
+
+    C.  Create a MySQL Database for Basmati
+
+    You'll now need to create a MySQL database for Basmati.  This can be
+    achieved by running the "mysqladmin" program that is distributed with MySQL.
+    We'll assume that the name of the database is "basmati" -- change if needed.
+    Typically, you'll need a password to administer this command, so will need
+    to use the "-p" option.  From the shell, issue the following command:
+    <b>
+    mysqladmin -p create basmati
+    </b>
+    Next, you'll need to create the table structure for the basmati database.
+    In the "basmati" directory that you downloaded earlier, there is a SQL-script
+    file containing the necessary SQL statements to create the database tables
+    and indexes.  This file is called "createdb.sql".  Be certain that you
+    are currently in the Basmati working directory and issue the following
+    command:
+    <b>
+    mysql -p basmati < createdb.sql
+    </b>
+    You'll want to be certain that this database is secured from unauthorized
+    access.  Please consult the MySQL documentation for additional details.
+
+    D.  Copy and Configure example_basmaticonstants.php
+
+    In the working directory for Basmati, you'll find a file called
+    "example_basmaticonstants.php" -- this file should be copied (or renamed)
+    to "basmaticonstants.php".  To achieve this, issue the following shell
+    command:<b>
+
+    cp example_basmaticonstants.php basmaticonstants.php</b>
+
+    Using your favourite text editor, open this file and configure the
+    necessary settings:
+
+    	* $datamethod = "mysql";
+          This instructs Basmati to use MySQL as the default database
+          server.
+        * $databasename = "basmati";
+          This defines the database that Basmati will use to store its data.
+        * $databaseserver = "localhost";
+          This defines the hostname or IP address of the database server.
+        * $datausernmae = "root";
+          You'll probably want to change this from being the "root" user.
+          This field defines the MySQL user that can access the database.
+        * $datapassword = "";
+          Again, you won't want this to be blank... this should be defined
+          when you set-up MySQL security.
+        * $logevents = 0;
+          If you'd like to log all login and file posting events to the
+          EVENTLOG table, set this value to 1 -- otherwise, leave it 0.
+        * $announcement = "Welcome to Basmati!";
+          This will provide faculty-members with a message before and
+          after they log into the system.
+        * $usetextbox = 0
+          You'll most likely want to leave this value 0... if you have
+          a very large number of schools being hosted, this will force
+          the students/parents to manually enter the school-id.
+        * $emaildomain = "";
+          If all faculty members have the same domain in their email address,
+          you can set the domain here (ex: asd.wednet.edu) so that they only
+          need to enter the username portion of their email address when
+          logging in.
+        * $admuser = "adminuser";
+          This is the default username for the admin account.  CHANGE IT!
+        * $admpass = "adminpass";
+          This is the default password for the admin account.  CHANGE IT!
+
+	E.  Testing the Installation
+
+    	Once you've completed all of the steps above, it's time to test your
+        installation.  You should start your favourite web-browser and point
+        it to your server (example:  http://yourserver/basmati/).  The admin
+        pages can be found at /basmati/admin.htm.  So, a complete example:
+        http://yourserver/basmati/admin.htm
+
+        Once at the "Admin Tools" screen, click the "Login" link and attempt
+        to login using your username and password that were configured in the
+        "basmaticonstants.php" file.  If you can log-in, you know that the
+        following features were installed properly:  your web-server, PHP,
+        and the Basmati scripts.
+
+        Once logged in, click  "Submit Query" link.  In the right-hand
+        frame's textbox, type the following command:  "SHOW TABLES".  Then
+        click the "Submit Query" button.  You should see a list of the
+        database tables that are available in Basmati.  If this worked, you
+        know that MySQL has been configured properly.  If not, it's very
+        likely that MySQL was not installed or configured properly.
+
+        If both of these tests succeeded, you can proceed to the document
+        titled "Setting up School and Faculty Accounts".  Be certain to
+        read some additional information on securing your web-server below.
+
+
+ II.	A Few Notes on Security
+
+        A.  Use of register_globals = off
+
+        Basmati has been written to take advantage of the regiser_globals=off
+        setting in the php.ini settings file.  This setting will help prevent
+        "variable-poisoning" hacking techniques.  If at all possible, please
+        make use of this setting.  Please note that other PHP programs may
+        not function properly if regiser_globals has been set to the "off" setting.
+
+        B.  Use of SSL
+
+        For optimum security, it is strongly suggested that SSL is implemented
+        on the web-server.  This will encrypt all communication between the
+        server and web-clients.  There may be a slight performance decrease
+        when implmenting SSL, but this is a minor trade-off for such dramatic
+        improvements in security.
+
+        C.  Requiring Authentication for Admin
+
+        If it is not possible to use SSL to encrypt communication between the
+        client and server, an effort should be made to require additional
+        authentication for the "admin" Basmati user.
+
+        If you are using Apache as your web-server, you can require additional
+        authentication on all of the "administrative" files by adding the
+        following lines to your httpd.conf file:
+
+		&ltDirectory "/var/www/basmati"&gt
+	   		Options MultiViews
+ 	   		AllowOverride None
+	   		Order allow,deny
+	   		Allow from all
+  	  		&ltFiles admin*&gt
+	    		 Order allow,deny
+	    		 Allow from all
+	    		 AuthName "Basmati Administrators Only"
+	    		 AuthType Basic
+	    		 AuthUserFile /etc/users
+	    		 require user basadmin
+	  		&lt/Files&gt
+		&lt/Directory&gt
+
+        You will need to replace "/var/www/basmati" with the appropriate
+        directory for your own Linux distribution.
+
+        You will also need to run the "httpasswd" program to create a password
+        for the "basadmin" user.  The syntax of this command is:
+        <b>
+        htpasswd -c /etc/users basadmin
+        </b>
+        This will create a file called "users" in the /etc directory which
+        will contain an encrypted password for the user "basadmin".  When
+        this technique is employed, you will need to log-in using basic HTTP
+        authentication before you can view the administrative pages.
+      </pre>
+
+
+      If you have additional questions, please email me at <a href=mailto:support@basmatisoftware.com>
+      support@basmatisoftware.com</a>.
+      </body>
+      </html>
+
+
+

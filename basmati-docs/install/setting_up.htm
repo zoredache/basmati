@@ -1,0 +1,53 @@
+<html><head>
+<title>Setting Up Basmati</title>
+</head>
+<body bgcolor=white>
+<font face=verdana,arial size=-1>
+<h3>
+Setting Up School & Faculty Accounts
+</h3>
+</center>
+<hr>
+Once you've installed Basmati and created its database, you need to set up school accounts and faculty accounts.
+The instructions below outline these procedures.  All of these must be performed from the Basmati administrator
+account (you can access this with the <i>admin.htm</i> file).  You'll need to log in as the administrator.
+<ul>
+<li><b>Create School Account(s).</b>  Basmati will support multiple schools from the same server.  Click the "Add School"
+link and supply the following information:
+<ul>
+<li><font color=brown>School ID</font> -- The school ID is a shortened description of the school you will
+create.  For example, "Jefferson High School" would probably use a school ID of <b>JHS</b>.  Each school that
+you create should have a <b>unique</b> school ID.  The school ID will be used when you create a faculty account (each
+faculty member will be assigned to a particular school via this ID).
+<li><font color=brown>School Name</font> -- The school name is the full name of the school (such as "Jefferson High School").  
+This should be unique too, as this will appear on the internet login-page for parents and students.
+<li><font color=brown>School State and City</font> -- If you are hosting Basmati for multiple districts, this information may be useful.
+<li><font color=brown>School URL</font> -- If a school has a web-page, enter their full URL (such as http://www.jhs.edu).  At this point,
+Basmati will not link to these URLs, but may in future versions.
+</ul>
+<p>
+<li><b>Create Faculty Account(s).</b>  Click the "Add Client" link to add a faculty member to Basmati.  Without a faculty account,
+a teacher will not be able to submit files to Basmati (or check student grades).  The following information must
+be supplied for each faculty account:
+<ul>
+<li><font color=brown>School ID</font> -- You must assign each faculty member to a school via the school ID.  Presently, a faculty member
+may belong to only one school.  In the school created above, you would enter JHS for the school ID (not the long school description).
+<li><font color=brown>Client ID</font> -- Each faculty member is assigned a login ID.  For simplicity's sake, you should consider
+using the faculty member's email address (for example, jsmith@asd.wednet.edu).  Each client ID must be <b>unique</b> within the database system. 
+<li><font color=brown>Client PW</font> -- Each faculty member must also be assigned a password.  When their password is combined with their client ID,
+a faculty member will be able to log into the system to submit grades.
+<li><font color=brown>Client Exp. Date</font> -- Presently, this is not used within Basmati, but when added will provide an expiration date for
+each faculty account.  Although non-functional, a date is still required to create the account.
+<li><font color=brown>Client Full Name</font>  --  The full name of the faculty member should appear here.  This name is never displayed within
+the web-pages of Basmati, but is used for record-keeping purposes.
+</ul>
+<br>
+Once the faculty account has been created, you must provide the teacher with their Client ID and Client Password -- these will be used to log into
+the system <i>and</i> within their electronic gradebooks.  Spelling must be accurate!  To test the account, you can visit the faculty page (faculty.htm)
+and log into the system.
+<p>
+It is possible to use a single faculty account for an entire building, but this practice is strongly discouraged for security reasons.
+</ul>
+<p>
+If any changes (or deletions) are required, they currently must be accomplished by submitting an SQL query.  Details about using this feature can
+be found on a separate page.
