@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: adminlogin.php,v 1.2 2001/11/16 23:19:17 basmati Exp $
+// $Id: adminlogin.php,v 1.3 2002/01/16 22:08:25 basmati Exp $
 
 $admuser = "";
 $admpass = "";
@@ -37,8 +37,8 @@ $pword = $HTTP_POST_VARS['pword'];
 if ($uname == $admuser && $pword == $admpass){
   //set cookies
   session_register("LoginType");
-  $LoginType = "A";
-  $HTTP_SESSION_VARS['LoginType'] = "A";
+  $LoginType = "A" . $districtid;
+  $HTTP_SESSION_VARS['LoginType'] = "A" . $districtid;
   //setcookie("LoginType","A");
   echo ("<body bgcolor=white>");
   echo ("<center><img src=basmati.gif><br><font color=green>You are now logged in.</font></center>");

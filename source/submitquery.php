@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: submitquery.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: submitquery.php,v 1.2 2002/01/16 22:08:25 basmati Exp $
 
 $LoginType = "";
 session_start();
@@ -30,7 +30,7 @@ $sqltext = $HTTP_POST_VARS['sqltext'];
 $returnstyle = $HTTP_POST_VARS['returnstyle'];
 
  include ("basmaticonstants.php");
- if ($LoginType != "A"){
+ if ($LoginType != "A" . $districtid){
    echo("You must log-in to use this feature.");
    exit;
  }

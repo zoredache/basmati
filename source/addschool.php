@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: addschool.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: addschool.php,v 1.2 2002/01/16 22:08:25 basmati Exp $
 
 require ("basmaticonstants.php");
 
@@ -36,7 +36,7 @@ $school_state = $HTTP_POST_VARS['school_state'];
 $school_city = $HTTP_POST_VARS['school_city'];
 $school_url = $HTTP_POST_VARS['school_url'];
 
-if ($LoginType != "A"){
+if ($LoginType != "A" . $districtid){
 	echo("You must log-in to use this feature.");
     exit;
 }

@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: printreportcards.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: printreportcards.php,v 1.2 2002/01/16 22:08:26 basmati Exp $
 
   $LoginType = "";
 
@@ -38,7 +38,7 @@
 
 
 
- if ($LoginType != "A" ){
+ if ($LoginType != "A" . $districtid){
    echo("You must log-in to use this feature.");
    exit;
  }

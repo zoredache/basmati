@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: printgradebookblocks.php,v 1.2 2001/12/17 22:22:42 basmati Exp $
+// $Id: printgradebookblocks.php,v 1.3 2002/01/16 22:08:26 basmati Exp $
 
  $LoginType = "";
  session_start();
@@ -41,7 +41,7 @@
  include ("../basmaticonstants.php");
 
 
- if ($LoginType != "A" ){
+ if ($LoginType != "A" . $districtid){
    echo("You must log-in to use this feature.");
    exit;
  }

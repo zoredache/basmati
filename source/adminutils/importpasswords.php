@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: importpasswords.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: importpasswords.php,v 1.2 2002/01/16 22:08:26 basmati Exp $
 
 
 //Connect to the database...
@@ -31,15 +31,15 @@ session_start();
 $LoginType = $HTTP_SESSION_VARS['LoginType'];
 $schoolid = $HTTP_POST_VARS['schoolid'];
 
+  require("../basmaticonstants.php");
 
-if ($LoginType != "A"){
+if ($LoginType != "A" . $districtid){
   echo "<body bgcolor=#cacaff><font face='verdana,arial,helvetica'><b>You must log-in to use this feature.</font>";
   exit;
 }
 
 
   set_time_limit(600);  //allow up to 10 minutes for this script to run!
-  require("../basmaticonstants.php");
  
  //Connect to the database
  $link = mysql_connect($databaseserver,$datausername,$datapassword);

@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: addclient.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: addclient.php,v 1.2 2002/01/16 22:08:25 basmati Exp $
 
 $LoginType = "";
 session_start();
@@ -38,7 +38,7 @@ $client_fullname = $HTTP_POST_VARS['client_fullname'];
 
 
  require ("basmaticonstants.php");
- if ($LoginType != "A"){
+ if ($LoginType != "A" . $districtid){
    echo("You must log-in to use this feature.");
    exit;
  }

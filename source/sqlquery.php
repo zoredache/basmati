@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: sqlquery.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: sqlquery.php,v 1.2 2002/01/16 22:08:25 basmati Exp $
 
 //This file displays results of a SQL query
 
@@ -47,7 +47,7 @@ $dbpass = $datapassword;
 $dbname = $databasename;
 
 
-if ($logontype != "A" && $logontype != "C"){
+if ($logontype != "A" . $districtid && $logontype != "C"){
   echo "<body bgcolor=#cacaff><font face='verdana,arial,helvetica'><b>You must log-in to use this feature.</font>";
   exit;
 }

@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: importstudents.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: importstudents.php,v 1.2 2002/01/16 22:08:26 basmati Exp $
 
 //Check security
 $LoginType = "";
@@ -31,13 +31,14 @@ $LoginType = $HTTP_SESSION_VARS['LoginType'];
 $schoolid = $HTTP_POST_VARS['schoolid'];
 $defaultpw = $HTTP_POST_VARS['defaultpw'];
 
-if ($LoginType != "A"){
+ require("../basmaticonstants.php");
+
+if ($LoginType != "A" . $districtid){
   echo "<body bgcolor=#cacaff><font face='verdana,arial,helvetica'><b>You must log-in to use this feature.</font>";
   exit;
 }
 
 //Connect to the database...
- require("../basmaticonstants.php");
 
  //Connect to the database
  $link = mysql_connect($databaseserver,$datausername,$datapassword);

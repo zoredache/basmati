@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: dropclass.php,v 1.2 2001/11/01 20:51:27 basmati Exp $
+// $Id: dropclass.php,v 1.3 2002/01/16 22:08:25 basmati Exp $
 
  $LoginType = "";
  session_start();
@@ -31,7 +31,7 @@
   $dropid = $HTTP_GET_VARS['dropid'];
 
  include ("basmaticonstants.php");
- if ($LoginType != "T" && $LoginType != "A"){
+ if ($LoginType != "T" && $LoginType != "A" . $districtid){
    echo("You must log-in to use this feature.");
    exit;
  }
