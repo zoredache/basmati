@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: facultylogout.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: facultylogout.php,v 1.2 2001/11/01 20:51:27 basmati Exp $
 
 session_start();
 
@@ -32,6 +32,7 @@ $HTTP_SESSION_VARS['LoginType'] = "";
 $HTTP_SESSION_VARS['SchoolID'] = "";
 $HTTP_SESSION_VARS['UserID'] - "";
 
+ echo '<LINK rel="stylesheet" type="text/css" href="style.css" title="style1">';
  echo("<center><img src=basmati.jpg><br>");
  echo("You are now logged out.</center>");
 

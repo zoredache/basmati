@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: getpasswords.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: getpasswords.php,v 1.2 2001/11/01 20:51:27 basmati Exp $
 
  $LoginType = "";
  session_start();
@@ -95,15 +95,17 @@
 if ($reporttype != "GMIMPORT" ){
 
 //Now print the table (entirely contained in $ary...
-  echo("<body bgcolor=white>Passwords for $cc<hr>");
+  echo '<LINK rel="stylesheet" type="text/css" href="style.css" title="style1">';
+  echo("<b>Passwords for $cc</b><hr>");
   echo("<table border=0><tr bgcolor=yellow>");
 
 //First the headers...
   for ($f =1;$f<=$nfields;$f++){
-   echo("<th>".$titles[$f]."</th>");
+   echo("<th><font size=-1>".$titles[$f]."</font></th>");
   }
 
-  echo ("<th>Details</th>");
+  echo ("<th><font size=-1>Details</font></th>");
+  echo ("<th><font size=-1>Private Notes</font></th>");
 
 //Now the data...
   for ($r=1;$r<=$nrows;$r++){
@@ -114,9 +116,10 @@ if ($reporttype != "GMIMPORT" ){
     }
    echo ("<tr bgcolor=$rowcolor>");
    for ($f=1;$f<=$nfields;$f++){
-    echo("<td>".$ary[$r][$f]."</td>");
+    echo("<td><font size=-1>".$ary[$r][$f]."&nbsp</font></td>");
    }
    echo("<form method=get action=showreportcard.php><td valign=top><input type=submit value=Details><input type=hidden name = sid value=" .$ary[$r][1]. "></td></form>");
+   echo("<form method=get action=privatenotes.php><td valign=top><input type=hidden name=cc value = $cc><input type=submit value='Private Notes'><input type=hidden name = sid value=" .$ary[$r][1]. "></td></form>");
    echo ("</tr>");
   }
 

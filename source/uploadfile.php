@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: uploadfile.php,v 1.2 2001/10/25 17:32:03 basmati Exp $
+// $Id: uploadfile.php,v 1.3 2001/11/01 20:51:27 basmati Exp $
 
 $LoginType = "";
 session_start();
@@ -31,6 +31,7 @@ $LoginType = $HTTP_SESSION_VARS['LoginType'];
 include ("basmatifunctions.php");
 
  if ($LoginType != "T" && $LoginType != "A"){
+   echo '<LINK rel="stylesheet" type="text/css" href="style.css" title="style1">';
    echo("You must log-in to use this feature.");
    exit;
  }
@@ -40,7 +41,9 @@ include ("basmatifunctions.php");
 <html>
 <head>
 <title>Results from export file...</title>
-<body bgcolor=white>
+<LINK rel="stylesheet" type="text/css" href="style.css" title="style1">
+</head>
+<body>
 <h3>Results from Export File Transfer</h3>
 
 <?php
@@ -127,7 +130,7 @@ fclose($fp);
 
   	if(!xml_parse($parser,$data)){
    		die(sprintf("<font color=red>There is an error in your export file at line %d and column
-   		%d.  Please verify that your file is a valid export file.  (Error code: %s)</font>",xml_get_current_line_number($parser),xml_get_current_column_number($parser),xml_error_string(xml_get_error_code($parser))));
+   		%d.  Please verify that your file is a valid export file.  (Error code:%s)</font>",xml_get_current_line_number($parser),xml_get_current_column_number($parser),xml_error_string(xml_get_error_code($parser))));
   	}
 
 
@@ -140,7 +143,7 @@ fclose($fp);
 	//Verify that the email address in the file is equal to the address of the current user
 	//Only allow this user to post their own files...  (this may be removed if desired)
     if (trim(strtolower($classinfo["MISC1"])) != trim(strtolower($UserID))) {
-       echo ("<font color=red>You may only submit your own files.  Please log in as the appropriate user and resubmit this file.</font>");
+       echo ("<font color=red>You may only submit your own files.  Please log in as the appropriate user and resubmit this file OR verify that your username and password is typed correctly in your gradebook software.</font>");
        fnCloseDB();
        exit;
      }
@@ -184,7 +187,7 @@ fclose($fp);
 	echo("<hr>");
 	echo "<b>Class $ncl</b><br>";
 	echo($classinfo["TNAME"]."<br>");
-	echo("Your export file for <i>".$classinfo["CNAME"]." </i>contained $nstudent student(s) and $nassign assignment(s).");
+	echo("Your export file for <i>".$classinfo["CNAME"]." </i>contained $nstudent student(s) and $nassign assignment(s).<p>");
     writelog("UP-FAC",$UserID,$SCHID);
 	echo("<br><i>Summary...</i><br>");
 	echo("<table border=1><tr><td><b>ID</t></td><td><b>GRADE</b></td></tr>");
@@ -512,23 +515,23 @@ function verifydata(){
     echo("Warning: No Teacher Name can be found.  Your grades may still post.<br>");
   }
   if ($classinfo["CC"] == ""){
-    echo("No course-code is present -- cannot post file.  Check <i>Class-Class Info</i> section of Grade Machine and make sure a course-code exists.<br>");
+    echo("No course-code is present -- cannot post file.  Check your gradebook software and make certain a course-code exists.<br>");
     $returnval = 0;
   }
   if (eregi(" ",$classinfo["CC"])){
-    echo("Your coursecode and/or section number must not contain any spaces.  Please remove any spaces from Grade Machine's Class-Class Info course-code and/or section and resubmit your data.<br>");
+    echo("Your coursecode and/or section number must not contain any spaces.  Please check your gradebook software, fix the error, and resubmit.<br>");
     $returnval = 0;
   }
   if($classinfo["CNAME"] == "") {
-    echo ("Warning:  No Course Name was found in this file.  Data will not be posted.  Check <i>Class-Class Info</i> section of Grade Machine.<br>");
+    echo ("Warning:  No Course Name was found in this file.  Data will not be posted.  Please check your gradebook software.<br>");
     $returnval = 0;
   }
   if ($classinfo["MISC1"] == "") {
-    echo ("Warning:  No Email Address was found in this file.  Data will not be posted.  Check <i>Class-Class Info</i> section of Grade Machine and make sure your username is in MISC1 field.<br>");
+    echo ("Warning:  No Email Address was found in this file.  Data will not be posted.  Please check your gradebook software.<br>");
     $returnval = 0;
   }
     if ($classinfo["TID"] == "") {
-    echo ("Warning:  No Teacher ID was found in this file.  Data will not be posted.  Check <i>Class-Class Info</i> section of Grade Machine to make sure your password is in the Teacher ID field.<br>");
+    echo ("Warning:  No Password was found in this file.  Data will not be posted.  Please check your gradebook software.<br>");
     $returnval = 0;
   }
     if ($nassign < 1) {

@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: example_basmaticonstants.php,v 1.2 2001/10/10 03:30:06 basmati Exp $
+// $Id: example_basmaticonstants.php,v 1.3 2001/11/01 20:51:27 basmati Exp $
 
 //Database Access, etc
 $datamethod = "mysql";  //Set to odbc or mysql depending upon database server
@@ -33,6 +33,8 @@ $logevents = 0;  //  If 1 will log to EVENTLOG table (only if using MySQL)
 $announcement = "Welcome to Basmati!";  //Faculty-level announcement
 $usetextbox = 0; //  If zero, will display list of schools, if 1, will require user to enter school id
 $emaildomain = "";  // Leave blank if site will host multiple email domains.
+$localsubnet = "169.204.11%"; //Used for statistics to determine local access
+
 
 //These constants allow access to administrative pages... be sure to change them!
 $admuser = "adminuser";

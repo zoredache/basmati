@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: showreportcard.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: showreportcard.php,v 1.2 2001/11/01 20:51:27 basmati Exp $
 
   $LoginType = "";
 
@@ -72,6 +72,7 @@
 
 
   echo("<body background=cork.jpg>");
+  echo '<LINK rel="stylesheet" type="text/css" href="style.css" title="style1">';
   echo("<font size=+2 color=white>");
   echo("<center><b>Basmati Grade Report for $sid</b><p>");
 
@@ -171,7 +172,8 @@
 
   echo("<center>");
   echo("<table border=1 bgcolor=white><tr bgcolor=#ffff99>");
-  echo("<td><b>Class Name</b></td><td><b>Instructor</b></td><td><b>Last Updated</b></td><td><b>Grade</b></td><td><b>Gradebook</b></td><td><b>Teacher<br>Notes</b></td>");
+  echo("<td><b>Class Name</b></td><td><b>Instructor</b></td><td><b>Last
+Updated</b></td><td><b>Grade</b></td><td><b>Gradebook</b></td><td><b>Class<br>Notes</b></td>");
    echo("</tr>");
 
 

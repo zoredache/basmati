@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: facultylogin.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: facultylogin.php,v 1.2 2001/11/01 20:51:27 basmati Exp $
 
  global $school_id;
  $uname = $HTTP_POST_VARS['uname'];
@@ -37,7 +37,8 @@
  fnopenDB();
  if (VerifyAccount()=="EXIT"){
   setcookie("LoginType","");
-  echo("<font color=red>BAD USERNAME or PASSWORD</FONT>");
+  echo '<LINK rel="stylesheet" type="text/css" href="style.css" title="style1">';
+   echo("<font color=red>BAD USERNAME or PASSWORD</FONT>");
   exit;
  }
 //Start Session or use cookies...
@@ -51,7 +52,7 @@
   $HTTP_SESSION_VARS['SchoolID'] = $school_id;
   $HTTP_SESSION_VARS['UserID'] = $uname;
 
-
+ echo '<LINK rel="stylesheet" type="text/css" href="style.css" title="style1">';
  echo("<body bgcolor=white><center><img src=basmati.jpg><br><font size=+1 color=green>You are now logged in.</font></center>");
  echo "<hr>";
  echo $announcement;
@@ -128,5 +129,4 @@ function fnCloseDB(){
 
 
 ?>
-
 

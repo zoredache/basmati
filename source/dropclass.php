@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: dropclass.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: dropclass.php,v 1.2 2001/11/01 20:51:27 basmati Exp $
 
  $LoginType = "";
  session_start();
@@ -48,7 +48,7 @@
   $cc = $dropid;
   $query[0] = "DELETE from COURSEINFO where cc = '" . $cc . "' and schoolid = '" . $SchoolID . "';";
   $query[1] = "DELETE from GMSCORES where cc = '" . $cc . "' and schoolid = '" . $SchoolID . "';";
-
+  $query[2] = "DELETE from PRIVNOTES where cc = '" . $cc . "' and schoolid = '" . $SchoolID . "';";
 
 
   if ($datamethod == "odbc"){
@@ -66,6 +66,7 @@
    fnOpenDB();
    $sql_result = mysql_query($query[0],$link);
    $sql_result = mysql_query($query[1],$link);
+   $sql_result = mysql_query($query[2],$link);
 
    fnCloseDB();
  } // end of mysql

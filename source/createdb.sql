@@ -43,7 +43,17 @@ CREATE TABLE GMSCORES (
     );
 
 
-  CREATE TABLE GROUPS (
+CREATE TABLE PRIVNOTES (
+    id 		INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    sid		integer NOT NULL,
+    cc		varchar(30) NOT NULL,
+    schoolid	varchar(16) NOT NULL,
+    notes	mediumtext,
+    LastUpdate  TIMESTAMP
+);
+	  
+
+CREATE TABLE GROUPS (
     id 		INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     groupname 		varchar(20),
     groupsids	 	mediumtext,

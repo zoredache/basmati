@@ -1,0 +1,49 @@
+Release Notes
+-------------------------------------------------
+
+*** 2001-November-11 ***
+This release includes quite a few new features
+and enhancements -- including this RELEASENOTES
+document.
+
+New Features:
+ - Teachers can now leave individualized notes
+   for students/parents by using the "Individual
+   Notes" feature.  If you are upgrading your
+   version of Basmati prior to the 2.2001.11.01 
+   version, you'll need to add support for the
+   additional database table within Basmati.
+   Typically, this can be done my executing the
+   createdb.sql script with the -f script.  
+   Errors will be generated when trying to create
+   tables that already exist, but the -f 
+   switch will continue processing so that the 
+   new table can be created.
+ - Live statistics can be gathered from the
+   site by viewing /xtools/stats.htm  
+   (You may need to edit stats.php for local
+   subnet values).
+ - A few other tools can be found in the xtools
+   folder... they should be considered expirimental.
+   Use at your own risk.
+
+
+Enhancements:
+ - Cascading Style Sheets allow for global customi-
+   zation of background color and fonts.  Simply copy
+   the "example_style.css" file to "style.css" and
+   edit to your tastes.
+ - Some of the table column headings and button names
+   have been changed to make more sense.
+ - The following Misc tags may be used to control
+   the behaviour of the web progress reports:
+	"-disc" will remove the disclaimer
+	"-pp" will remove the points-possible column
+ - To allow a future Excel macro to be used as
+   a gradebook, assignment values can now be separated
+   by chr(169) as well as a comma.  Basmati will
+   attempt to autodetect.
+
+
+
+

@@ -1,5 +1,4 @@
 <?php
-    $localsubnet = "169.204.116.%";
 	include("../basmaticonstants.php");
 
 //Open the database...

@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: showgradebook.php,v 1.2 2001/10/25 17:33:21 basmati Exp $
+// $Id: showgradebook.php,v 1.3 2001/11/01 20:51:27 basmati Exp $
 
  $LoginType = "";
  session_start();
@@ -149,12 +149,27 @@ if ($datamethod == "mysql"){
 //Start drawing page...
   if (eregi("-background",$grade_array[misc][1])){
    echo("<body bgcolor=white>");
+   echo '<LINK rel="stylesheet" type="text/css" href="style.css" title="style1">';
   } else {
    echo("<body background=notebook.gif>");
+   echo '<LINK rel="stylesheet" type="text/css" href="style.css" title="style1">';
   }
-  echo("<font size=+2 color=black>");
+  echo("<font size=+1 color=black>");
   echo("<center><b>Basmati Detailed Gradebook Report for $sid</b><p>");
 
+
+//Display any Private Notes...
+if ($datamethod == "mysql"){
+  $mysql_query = "SELECT * from PRIVNOTES where sid = $sid and schoolid = '$SchoolID' and cc = '$cc';";
+  fnOpenDB();
+  $sql_result = mysql_query($mysql_query,$link);
+  if (mysql_num_rows($sql_result) > 0){
+	$notes = mysql_result($sql_result,0,notes);
+	echo "<blockquote><center>";
+	echo "<table bgcolor=white border=1><tr><td><b>Instructor's Notes:</b><br>$notes</td></tr></table>";
+	echo "</center></blockquote>";
+  }
+ fnCloseDB();
 
 
 // Show contact Information
@@ -210,29 +225,35 @@ if ($datamethod == "mysql"){
 
   for ($i = 0; $i < $nrows-1 ;$i++){
     echo("<tr>");
-    echo("<td border=1>" . $assign_names[$i] . "&nbsp</td>");
-    echo("<td border=1>" . AddStarofDeath($student_scores[$i]) . "&nbsp</td>");
+    echo("<td border=1><font size=-1>" . $assign_names[$i] . "&nbsp</font></td>");
+    echo("<td border=1><font size=-1>" . AddStarofDeath($student_scores[$i]) . "&nbsp</font></td>");
     if (!eregi("-pp",$grade_array[misc][1])){
-       echo("<td border=1>" . ParseStandards($assign_vals[$i],$grade_array[misc][1]) . "&nbsp</td>"); //process standards
+       echo("<td border=1><font size=-1>" . ParseStandards($assign_vals[$i],$grade_array[misc][1]) . "&nbsp</font></td>"); //process standards
     }
     if (!eregi("-misc",$grade_array[misc][1])){
-       echo("<td border=1>" . ParseStandards($ealr_names[$i],$grade_array[misc][1]) . "&nbsp</td>"); //process standards
+       echo("<td border=1><font size=-1>" . ParseStandards($ealr_names[$i],$grade_array[misc][1]) . "&nbsp</font></td>"); //process standards
     }
     echo("</tr>");
   }
   echo ("</table>");
-  echo ("</center></blockquote>");
+  echo ("</center>");
+
+
+echo "</blockquote>";
+
+}
+
 
 //Show the disclaimer unless '-disc' appears in MISC3
 if (!eregi("-disc",$grade_array[misc][1])){
  echo "<table border = 0><tr><td width=100></td><td width=*>";
- echo "<p><hr><b>Disclaimer:</b>  The scores contained in the table above may be weighted.  ";
+ echo "<p><hr><b><font size=-1>Disclaimer:</b>  The scores contained in the table above may be weighted.  ";
  echo "It is not usually possible to simply add the number of points earned and divide ";
  echo "by the total number of points when scores are weighted.  The scores presented in ";
  echo "this table are for information only.<p>";
  echo "An asterisk (<font color=red>*</font>) indicates that this score is missing from the teacher's grade book.  Most likely this indicates ";
  echo "that the assignment was never turned into the teacher.  However, in rare occasions it may ";
- echo "also indicate that this assignment was not intended to be graded.";
+ echo "also indicate that this assignment was not intended to be graded.</font>";
  echo "<p>";
  echo "<br>";
  echo "</td></tr></table>";

@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: facultycheckstudentgrade.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: facultycheckstudentgrade.php,v 1.2 2001/11/01 20:51:27 basmati Exp $
 
  $LoginType = "";
  session_start();
@@ -36,14 +36,11 @@
  }
 ?>
  <body bgcolor=white>
+ <LINK rel="stylesheet" type="text/css" href="style.css" title="style1">
  <form method=get action=showreportcard.php>
  <table border = 0>
- <tr>
- <td><input type=text name=sid> </td>
- <td><input type=submit></td>
- <tr>
- <td>Student ID</td><td></td>
- </tr>
+ <tr><td>Student ID:<input type=text name=sid> </td></tr>
+ <tr><td><input type=submit value='Check Grade'></td> </tr>
  </table>
  </form>
 

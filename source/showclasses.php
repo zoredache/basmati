@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: showclasses.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: showclasses.php,v 1.2 2001/11/01 20:51:27 basmati Exp $
 
  $LoginType = "";
  session_start();
@@ -35,7 +35,8 @@
    echo("You must log-in to use this feature.");
    exit;
  }
- echo "<body bgcolor=white>Current User: " .$UserID. " (". $SchoolID . ")<p>";
+ echo '<LINK rel="stylesheet" type="text/css" href="style.css" title="style1">';
+ echo "Current User: " .$UserID. " (". $SchoolID . ")<p>";
 
 
 //Get Data into an array...
@@ -89,11 +90,11 @@
 
 //First the headers...
   for ($f =1;$f<=$nfields;$f++){
-   echo("<th>".$titles[$f]."</th>");
+   echo("<th><font size=-1>".$titles[$f]."</font></th>");
   }
 
-  echo ("<th>Get Passwords</th>");
-  echo ("<th>Remove<br>Class</th>");
+  echo ("<th><font size=-1>Student<br>Information</th></font>");
+  echo ("<th><font size=-1>Remove<br>Class</th></font>");
 
 //Now the data...
   for ($r=1;$r<=$nrows;$r++){
@@ -104,9 +105,10 @@
     }
    echo ("<tr bgcolor=$rowcolor>");
    for ($f=1;$f<=$nfields;$f++){
-    echo("<td>".$ary[$r][$f]."</td>");
+    echo("<td><font size=-1>".$ary[$r][$f]."</font></td>");
    }
-   echo("<form method=get action=getpasswords.php><td valign=middle><input type=submit value=Passwords><input type=hidden name=cc value=" .$ary[$r][1]. "></td></form>");
+   echo("<form method=get action=getpasswords.php><td valign=middle align=center><input type=submit value=Students><input
+type=hidden name=cc value=" .$ary[$r][1]. "></td></form>");
    echo("<form><td valign=middle align=center><input type=button onClick = confirmation('" . $ary[$r][1]. "') value=DEL></td></form>");
 
    echo ("</tr>");

@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: facultycheckgroupreport.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: facultycheckgroupreport.php,v 1.2 2001/11/01 20:51:27 basmati Exp $
 
  $LoginType = "";
  session_start();
@@ -36,6 +36,7 @@
  }
 ?>
  <body bgcolor=white>
+ <LINK rel="stylesheet" type="text/css" href="style.css" title="style1">
  <form method=get action=showgroupreport.php>
  <table border = 0>
  <tr>

@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: submitfile.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
+// $Id: submitfile.php,v 1.2 2001/11/01 20:51:27 basmati Exp $
 
 $LoginType = "";
 session_start();
@@ -33,18 +33,20 @@ session_start();
 <?php
  $LoginType = $HTTP_SESSION_VARS['LoginType'];
  if ($LoginType != "T" && $LoginType != "A"){
+   echo '<LINK rel="stylesheet" type="text/css" href="style.css" name="style1">';
    echo("You must log-in to use this feature.");
    exit;
  }
 ?>
-<body bgcolor=white>
-<h1>Submit file...</h1>
+<LINK rel="stylesheet" type="text/css" href="style.css" name="style1">
+
+<h3>Submit a Grade Export File...</h3>
 
 <form method=post action=uploadfile.php ENCTYPE="multipart/form-data">
-Locate your export file...
+Step 1:  Locate the grade export file on your computer by clicking the "Browse" button...
 <br> <input type=file name="userfile" value="Locate File">
 <p>
-Send the file to Basmati...
+Step 2:  Click "Submit File to Basmati" to send the file to Basmati...
 <br>
 <input type=submit value="Submit File to Basmati">
 <p>
