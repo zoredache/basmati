@@ -21,7 +21,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 //
-// $Id: facultylogin.php,v 1.3 2001/11/16 23:19:17 basmati Exp $
+// $Id: facultylogin.php,v 1.4 2002/04/21 07:19:32 basmati Exp $
 
  global $school_id;
  $uname = $HTTP_POST_VARS['uname'];
@@ -64,6 +64,7 @@
 
 
 function VerifyAccount(){
+ include("basmaticonstants.php");
  global $classinfo;
  global $datamethod,$link;
  global $uname, $pword;
@@ -83,6 +84,17 @@ function VerifyAccount(){
   if ($rowcount != 0){
 
     $school_id = mysql_result($sql_result,0,'client_school');
+	$expiredate = mysql_result($sql_result,0,'client_expdate');
+	$currentdate = date("Y-m-d" , mktime(0,0,0,date("m"),date("d"),date("Y")));
+
+	if (($currentdate >= $expiredate) && ($enforce_expiration) ){
+		echo "Your account has expired.";
+		if ($expireurl != "") {
+			echo "<p>Please visit <a href=$expireurl>$expireurl</a> to renew your account.";
+		}
+		exit;
+	}
+
     mysql_free_result($sql_result);
    }
   } // end of mysql

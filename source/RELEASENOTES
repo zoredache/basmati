@@ -67,3 +67,12 @@ use the new COMMENTLIST tables.  It is possible
 to turn this feature off (on a teacher-by-teacher
 basis) by adding "-comlist" to the misc 3 field.
 
+*** 2002-April-20 ***
+Finally got around to adding the faculty account
+expiration feature.  Compares date on server to
+CLIENTS.client_expdate -- if account has expired,
+instructor is not permitted to log-in.  Have
+option of displaying a URL on screen so that
+instructor can get additional details.
+
+
