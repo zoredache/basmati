@@ -10,7 +10,6 @@
 <!-- ------------------------------------------------------------------ -->
 <!--  Authors: James B. Bassett - basmatisoftware@msn.com               -->
 <!-- ------------------------------------------------------------------ -->
-<!-- $Id: facultyloginform.php,v 1.3 2002/04/27 21:30:07 basmati Exp $ -->
 <title>Login as Faculty Member</title>
 <LINK rel="stylesheet" type = "text/css" href="style.css" title="style1">
 </head>
