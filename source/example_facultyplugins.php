@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | Basmati -- Version 2.0P                                              |
 // +----------------------------------------------------------------------+
@@ -20,8 +19,6 @@
 // +----------------------------------------------------------------------+
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
-//
-// $Id: example_facultyplugins.php,v 1.1 2002/10/21 16:20:19 basmati Exp $
 
 // This file will permit the use of "facultyplugins" added to the bottom
 // of the facultylogin.php file provided that the $enablefacultyplugins 

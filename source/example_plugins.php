@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | Basmati -- Version 2.0P                                              |
 // +----------------------------------------------------------------------+
@@ -20,8 +19,6 @@
 // +----------------------------------------------------------------------+
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
-//
-// $Id: example_plugins.php,v 1.1 2002/09/27 23:13:22 basmati Exp $
 
 // This file will permit the use of "plugins" added to the bottom
 // of the showreportcard.php file provided that the $enableplugins 

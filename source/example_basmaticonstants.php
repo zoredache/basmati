@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | Basmati -- Version 2.0P                                              |
 // +----------------------------------------------------------------------+
@@ -20,8 +19,6 @@
 // +----------------------------------------------------------------------+
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
-//
-// $Id: example_basmaticonstants.php,v 1.8 2002/10/21 16:19:42 basmati Exp $
 
 //Database Access, etc
 $datamethod = "mysql";  //Set to odbc or mysql depending upon database server
