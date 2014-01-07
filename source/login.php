@@ -75,41 +75,52 @@
    $row_n = $nrows;
   } // end of mysql
 
+?>
+<html>
+<head>
+<title>Login to Basmati</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body background="bbrick.jpg" link="white" vlink="white">
 
+<center><font size="+2" color="yellow">Login to Basmati</font></center>
+<p>
+<form method="post" action="studentlogin.php">
+<table border="1" cellpadding="30" align="center">
+<tr>
+<td><center><input type="text" size="6" name="sid">
+<font color="yellow" size="+1">
+<br>
+<b>Student ID</b>
+<br><br>
+<input type="password" size = "6" name="pword">
+<br>Password</b></font></center>
+</td>
 
-
- echo("<html><head><title>Login to Basmati</title></head><body background=bbrick.jpg link=white vlink=white>");
- echo '<LINK rel="stylesheet" type="text/css" href="style.css" title="style1">';
- echo("<font size=+2 color=yellow><center>Login to Basmati</font><p>");
- echo("<table border=1 cellpadding=30><tr>");
-
- echo("<form method=post action=studentlogin.php>");
-
- echo("<td><center><input type=text size=6 name=sid><br>");
- echo("<font color=yellow size=+1><b>Student ID");
- echo("<p>");
- echo("<input type=password size = 6 name = pword><br>Password</b></font></center></td>");
+<?php
 
 if ($usetextbox == 0) {
- echo("<td><font color=yellow><b>Select School</b><br><font color=white>");
+ echo("<td><font color=\"yellow\"><b>Select School</b><br><font color=\"white\">");
  for ($i=1;$i <= $row_n; $i++){
   $ck = "";
   if ($i==1){
    $ck=" checked";
   }
-  echo("<input type=radio name = radio1 value = ". $grade_array[school_id][$i] . $ck . ">");
+  echo("<input type=\"radio\" name=\"radio1\" value=\"". $grade_array[school_id][$i] ."\"". $ck . ">".PHP_EOL);
   echo("<b>" . $grade_array[school_name][$i] . "</b><br>");
  }
 } else {
-  echo("<td><font color=yellow><center><input type=text name=radio1><br><b>School ID</b></center>");
+  echo("<td><font color=\"yellow\"><center><input type=text name=\"radio1\"><br><b>School ID</b></center>");
 }
+?>
+<p>
+<input type="submit" value="Check Grades">
 
-   echo("<p>");
-   echo ("<input type=submit value=\"Check Grades\">");
+</font></td></tr>
+</table>
+</form>
 
- echo("</font></td></tr>");
- echo("</table>");
- echo ("</form>");
+<?php
  if ($privacyurl != "") {
 	echo "<P><CENTER><A HREF=\"$privacyurl\">Privacy Policy</a>";
  }
@@ -129,15 +140,7 @@ function fnOpenDB(){
 
 function fnCloseDB(){
  global $link;
-
   if ($datamethod == "mysql"){
    mysql_close($link);
  }
 }
-
-
-
-
-
-?>
-
