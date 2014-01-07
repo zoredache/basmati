@@ -23,10 +23,9 @@
 //
 // $Id: uploadmultifile.php,v 1.1 2001/10/10 03:05:45 basmati Exp $
 
-$LoginType = "";
 session_start();
 
- if ($LoginType != "T" && $LoginType != "A"){
+ if ($_SESSION['LoginType'] != "T" && $_SESSION['LoginType'] != "A"){
    echo("You must log-in to use this feature.");
    exit;
  }

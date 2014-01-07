@@ -23,13 +23,10 @@
 //
 // $Id: printreportcards.php,v 1.2 2002/01/16 22:08:26 basmati Exp $
 
-  $LoginType = "";
 
   session_start();
 
-  $LoginType = $HTTP_SESSION_VARS['LoginType'];
   $SchoolID = $HTTP_POST_VARS['schoolid'];
-  $UserID = $HTTP_SESSION_VARS['UserID'];
   $StorageDir = $HTTP_POST_VARS['storageloc'];
   $school = $SchoolID;
 
@@ -38,7 +35,7 @@
 
 
 
- if ($LoginType != "A" . $districtid){
+ if ($_SESSION['LoginType'] != "A" . $districtid){
    echo("You must log-in to use this feature.");
    exit;
  }

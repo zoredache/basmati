@@ -88,30 +88,16 @@ if ($datamethod == "mysql"){
 
 
  if ($row_n != 0){
-   //set cookies and redirect!
-
-   //setcookie("LoginType","S");
-   //setcookie("SchoolID",$radio1);
-   //setcookie("sid",$sid);
-
-
 
    session_start();
-   session_register("LoginType");
-   session_register("SchoolID");
-   session_register("sid");
-   session_register("CurrentSID");
-   $LoginType = "S";
-   $SchoolID = $radio1;
-   $sid = $sidfromform;
-   $HTTP_SESSION_VARS['LoginType'] = "S";
-   $HTTP_SESSION_VARS['SchoolID'] = $radio1;
-   $HTTP_SESSION_VARS['sid'] = $sidfromform;
-   $HTTP_SESSION_VARS['CurrentSID'] = $sidfromform;
+   $_SESSION['LoginType'] = "S";
+   $_SESSION['SchoolID'] = $radio1;
+   $_SESSION['sid'] = $sidfromform;
+   $_SESSION['CurrentSID'] = $sidfromform;
 
 
 //Log the login to a file...
-   writelog("IN-STU",$sid,$SchoolID);
+   writelog("IN-STU",$sid,$_SESSION['SchoolID']);
 
    header("Location: showreportcard.php");
  } else {

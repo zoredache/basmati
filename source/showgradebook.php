@@ -23,29 +23,26 @@
 //
 // $Id: showgradebook.php,v 1.8 2004/02/02 07:00:47 basmati Exp $
 
- $LoginType = "";
  session_start();
- $LoginType = $HTTP_SESSION_VARS['LoginType'];
- $SchoolID =    $HTTP_SESSION_VARS['SchoolID'];
- $UserID = $HTTP_SESSION_VARS['UserID'];
+ $SchoolID = $_SESSION['SchoolID'];
+ $UserID = $_SESSION['UserID'];
  $cc = $HTTP_GET_VARS['cc'];
- $CurrentSID = $HTTP_SESSION_VARS['CurrentSID'];
- $sid = $HTTP_SESSION_VARS['sid'];
+ $sid = $_SESSION['sid'];
 
 
  include ("basmaticonstants.php");
 
 
- if ($LoginType != "T" && $LoginType != "A" && $LoginType != "S"){
+ if ($_SESSION['LoginType'] != "T" && $_SESSION['LoginType'] != "A" && $_SESSION['LoginType'] != "S"){
    echo("You must log-in to use this feature.");
    exit;
  }
- if ($LoginType == "S") {
- 	$sid = $HTTP_SESSION_VARS['sid'];
+ if ($_SESSION['LoginType'] == "S") {
+ 	$sid = $_SESSION['sid'];
  }
 
   $school = $SchoolID;
-  $sid = intval($CurrentSID);
+  $sid = intval($_SESSION['CurrentSID']);
 
   //check for invalid student ID
   if (intval($sid)<=0){

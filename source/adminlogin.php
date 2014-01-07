@@ -36,18 +36,14 @@ $pword = $HTTP_POST_VARS['pword'];
 
 if ($uname == $admuser && $pword == $admpass){
   //set cookies
-  session_register("LoginType");
-  $LoginType = "A" . $districtid;
-  $HTTP_SESSION_VARS['LoginType'] = "A" . $districtid;
-  //setcookie("LoginType","A");
+  $_SESSION['LoginType'] = "A" . $districtid;
+
   echo ("<body bgcolor=white>");
   echo ("<center><img src=basmati.gif><br><font color=green>You are now logged in.</font></center>");
   //Write log file...
   writelog("IN-ADM","admin","n/a");
 } else {
-  session_register("LoginType");
-  $LoginType = "";
-  //setcookie("LoginType","");
+  $_SESSION['LoginType'] = "";
   echo ("Invalid Login.");
 }
 

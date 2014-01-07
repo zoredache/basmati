@@ -23,14 +23,11 @@
 //
 // $Id: uploadfile.php,v 1.3 2001/11/01 20:51:27 basmati Exp $
 
-$LoginType = "";
 session_start();
-
-$LoginType = $HTTP_SESSION_VARS['LoginType'];
 
 include ("basmatifunctions.php");
 
- if ($LoginType != "T" && $LoginType != "A"){
+ if ($_SESSION['LoginType'] != "T" && $_SESSION['LoginType'] != "A"){
    echo '<LINK rel="stylesheet" type="text/css" href="style.css" title="style1">';
    echo("You must log-in to use this feature.");
    exit;
@@ -50,8 +47,8 @@ include ("basmatifunctions.php");
 include ("basmaticonstants.php");
 
 
-  $SchoolID =    $HTTP_SESSION_VARS['SchoolID'];
-  $UserID = $HTTP_SESSION_VARS['UserID'];
+  $SchoolID =    $_SESSION['SchoolID'];
+  $UserID = $_SESSION['UserID'];
 
   $userfile = $HTTP_POST_FILES;
   $file = $userfile['userfile']['tmp_name'];

@@ -27,8 +27,7 @@
 
 //For some reason, the Windows version needs to initialize a session before logging in???
  session_start();
- session_register("LoginType");
- $LoginType = "Z";
+ $_SESSION['LoginType'] = "Z";
 
 
 

@@ -23,17 +23,15 @@
 //
 // $Id: facultysendcomment.php,v 1.2 2001/11/01 20:51:27 basmati Exp $
 
-$LoginType = "";
 session_start();
-  $LoginType = $HTTP_SESSION_VARS['LoginType'];
-  $SchoolID =    $HTTP_SESSION_VARS['SchoolID'];
-  $UserID = $HTTP_SESSION_VARS['UserID'];
+  $SchoolID =    $_SESSION['SchoolID'];
+  $UserID = $_SESSION['UserID'];
   $comment = $HTTP_POST_VARS['comment'];
 
  include ("basmaticonstants.php");
 
 
- if ($LoginType != "T" && $LoginType != "A"){
+ if ($_SESSION['LoginType'] != "T" && $_SESSION['LoginType'] != "A"){
    echo("You must log-in to use this feature.");
    exit;
  }

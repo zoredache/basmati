@@ -24,10 +24,8 @@
 // $Id: purgebydate.php,v 1.2 2004/08/30 15:04:18 basmati Exp $
 
 //Check security
-$LoginType = "";
 session_start();
 
-$LoginType = $HTTP_SESSION_VARS['LoginType'];
 $schoolid = $HTTP_POST_VARS['schoolid'];
 $purgedate = $HTTP_POST_VARS['purgedate'];
 $act = $HTTP_POST_VARS['act'];
@@ -39,7 +37,7 @@ if ($schoolid == "***ALL***"){
 
  require("../basmaticonstants.php");
 
-if ($LoginType != "A" . $districtid){
+if ($_SESSION['LoginType'] != "A" . $districtid){
   echo "<body bgcolor=#cacaff><font face='verdana,arial,helvetica'><b>You must log-in to use this feature.</font>";
   exit;
 }

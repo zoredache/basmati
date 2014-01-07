@@ -26,13 +26,11 @@
 //This file allows the editing of a particular row in a table
 
 //Check security
-$LoginType = "";
 session_start();
 
 //Basmati Conversions...
 include("basmaticonstants.php");
 
-$logontype = $HTTP_SESSION_VARS['LoginType'];
 $dt = $HTTP_POST_VARS['dt'];
 $dv = $HTTP_POST_VARS['dv'];
 $dn = $HTTP_POST_VARS['dn'];
@@ -46,7 +44,7 @@ $dbuser = $datausername;
 $dbpass = $datapassword;
 $dbname = $databasename;
 
-if ($logontype != "A" . $districtid){
+if ($_SESSION['LoginType'] != "A" . $districtid){
   echo "<body bgcolor=#cacaff><font face='verdana,arial,helvetica'><b>You must log-in to use this feature.</font>";
   exit;
 }

@@ -24,16 +24,14 @@
 // $Id: importstudents.php,v 1.3 2002/08/28 16:49:28 basmati Exp $
 
 //Check security
-$LoginType = "";
 session_start();
 
-$LoginType = $HTTP_SESSION_VARS['LoginType'];
 $schoolid = $HTTP_POST_VARS['schoolid'];
 $defaultpw = $HTTP_POST_VARS['defaultpw'];
 
  require("../basmaticonstants.php");
 
-if ($LoginType != "A" . $districtid){
+if ($_SESSION['LoginType'] != "A" . $districtid){
   echo "<body bgcolor=#cacaff><font face='verdana,arial,helvetica'><b>You must log-in to use this feature.</font>";
   exit;
 }

@@ -26,15 +26,13 @@
 session_start();
 
 //Allows for register_globals=off
-$LoginType = $HTTP_SESSION_VARS['LoginType'];
-$SchoolID = $HTTP_SESSION_VARS['SchoolID'];
-$UserID = $HTTP_SESSION_VARS['UserID'];
+$SchoolID = $_SESSION['SchoolID'];
+$UserID = $_SESSION['UserID'];
 
-$HTTP_SESSION_VARS['LoginType'] = "";
-$HTTP_SESSION_VARS['SchoolID'] = "";
-$HTTP_SESSION_VARS['UserID'] = "";
+$_SESSION['LoginType'] = "";
+$_SESSION['SchoolID'] = "";
+$_SESSION['UserID'] = "";
 
-$LoginType = "";
 $SchoolID = "";
 $UserID = "";
 

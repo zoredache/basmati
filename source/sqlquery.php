@@ -26,11 +26,8 @@
 //This file displays results of a SQL query
 
 //Check security
-$LoginType = "";
-$logontype = "";
 session_start();
 
-$logontype = $HTTP_SESSION_VARS['LoginType'];
 $returnstyle = $HTTP_GET_VARS['returnstyle'];
 $sqltext = $HTTP_GET_VARS['sqltext'];
 
@@ -40,14 +37,13 @@ if ($datamethod == "odbc") {
   echo ("This feature is only available with the MySQL database server.");
   exit;
 }
-//$logontype = $LoginType;
 $dbserv = $databaseserver;
 $dbuser = $datausername;
 $dbpass = $datapassword;
 $dbname = $databasename;
 
 
-if ($logontype != "A" . $districtid && $logontype != "C"){
+if ($_SESSION['LoginType'] != "A" . $districtid && $_SESSION['LoginType'] != "C"){
   echo "<body bgcolor=#cacaff><font face='verdana,arial,helvetica'><b>You must log-in to use this feature.</font>";
   exit;
 }

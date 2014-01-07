@@ -23,12 +23,9 @@
 //
 // $Id: addclient.php,v 1.2 2002/01/16 22:08:25 basmati Exp $
 
-$LoginType = "";
 session_start();
 
-
 //Allows for register_globals=off
-$LoginType = $HTTP_SESSION_VARS['LoginType'];
 $client_id = $HTTP_POST_VARS['client_id'];
 $client_pw = $HTTP_POST_VARS['client_pw'];
 $client_school = $HTTP_POST_VARS['client_school'];
@@ -38,7 +35,7 @@ $client_fullname = $HTTP_POST_VARS['client_fullname'];
 
 
  require ("basmaticonstants.php");
- if ($LoginType != "A" . $districtid){
+ if ($_SESSION['LoginType'] != "A" . $districtid){
    echo("You must log-in to use this feature.");
    exit;
  }

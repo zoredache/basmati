@@ -23,16 +23,14 @@
 //
 // $Id: printgradebookstxt.php,v 1.3 2002/01/16 22:08:26 basmati Exp $
 
- $LoginType = "";
  session_start();
- $LoginType = $HTTP_SESSION_VARS['LoginType'];
  $SchoolID =    $HTTP_POST_VARS['schoolid'];
 
  //These will come from files....
- $UserID = $HTTP_SESSION_VARS['UserID'];
+ $UserID = $_SESSION['UserID'];
  $cc = $HTTP_GET_VARS['cc'];
- $CurrentSID = $HTTP_SESSION_VARS['CurrentSID'];
- $sid = $HTTP_SESSION_VARS['sid'];
+ $CurrentSID = $_SESSION['CurrentSID'];
+ $sid = $_SESSION['sid'];
  $StorageDir = $HTTP_POST_VARS['storageloc'];
  $nl = chr(13) . chr(10);
  $tab = chr(9);
@@ -42,7 +40,7 @@
  include ("../basmaticonstants.php");
  set_time_limit(6000);  //allow up to 10 minutes for this script to run!
 
- if ($LoginType != "A" . $districtid ){
+ if ($_SESSION['LoginType'] != "A" . $districtid ){
    echo("You must log-in to use this feature.");
    exit;
  }

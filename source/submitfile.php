@@ -23,7 +23,6 @@
 //
 // $Id: submitfile.php,v 1.2 2001/11/01 20:51:27 basmati Exp $
 
-$LoginType = "";
 session_start();
 ?>
 <html>
@@ -31,8 +30,8 @@ session_start();
 <title>Submit a grade file...</title>
 </head>
 <?php
- $LoginType = $HTTP_SESSION_VARS['LoginType'];
- if ($LoginType != "T" && $LoginType != "A"){
+
+ if ($_SESSION['LoginType'] != "T" && $_SESSION['LoginType'] != "A"){
    echo '<LINK rel="stylesheet" type="text/css" href="style.css" name="style1">';
    echo("You must log-in to use this feature.");
    exit;

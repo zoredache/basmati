@@ -25,18 +25,16 @@
 
 require ("basmaticonstants.php");
 
-$LoginType = "";
 session_start();
 
 //Allows for register_globals=off
-$LoginType = $HTTP_SESSION_VARS['LoginType'];
 $school_id = $HTTP_POST_VARS['school_id'];
 $school_name = $HTTP_POST_VARS['school_name'];
 $school_state = $HTTP_POST_VARS['school_state'];
 $school_city = $HTTP_POST_VARS['school_city'];
 $school_url = $HTTP_POST_VARS['school_url'];
 
-if ($LoginType != "A" . $districtid){
+if ($_SESSION['LoginType'] != "A" . $districtid){
 	echo("You must log-in to use this feature.");
     exit;
 }

@@ -23,16 +23,14 @@
 //
 // $Id: getpasswords.php,v 1.6 2003/12/23 19:20:31 basmati Exp $
 
- $LoginType = "";
  session_start();
-  $LoginType = $HTTP_SESSION_VARS['LoginType'];
-  $SchoolID =    $HTTP_SESSION_VARS['SchoolID'];
-  $UserID = $HTTP_SESSION_VARS['UserID'];
+  $SchoolID =    $_SESSION['SchoolID'];
+  $UserID = $_SESSION['UserID'];
   $cc = $HTTP_GET_VARS['cc'];
   $reporttype = $HTTP_GET_VARS['reporttype'];
 
  include ("basmaticonstants.php");
- if ($LoginType != "T" && $LoginType != "A"){
+ if ($_SESSION['LoginType'] != "T" && $_SESSION['LoginType'] != "A"){
    echo("You must log-in to use this feature.");
    exit;
  }

@@ -23,15 +23,14 @@
 //
 // $Id: dropclass.php,v 1.3 2002/01/16 22:08:25 basmati Exp $
 
- $LoginType = "";
  session_start();
-  $LoginType = $HTTP_SESSION_VARS['LoginType'];
-  $SchoolID =    $HTTP_SESSION_VARS['SchoolID'];
-  $UserID = $HTTP_SESSION_VARS['UserID'];
+
+  $SchoolID = $_SESSION['SchoolID'];
+  $UserID = $_SESSION['UserID'];
   $dropid = $HTTP_GET_VARS['dropid'];
 
  include ("basmaticonstants.php");
- if ($LoginType != "T" && $LoginType != "A" . $districtid){
+ if ($_SESSION['LoginType'] != "T" && $_SESSION['LoginType'] != "A" . $districtid){
    echo("You must log-in to use this feature.");
    exit;
  }

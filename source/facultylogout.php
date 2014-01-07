@@ -25,12 +25,11 @@
 
 session_start();
 
-$LoginType = "";
 $SchoolID = "";
 $UserID = "";
-$HTTP_SESSION_VARS['LoginType'] = "";
-$HTTP_SESSION_VARS['SchoolID'] = "";
-$HTTP_SESSION_VARS['UserID'] - "";
+$_SESSION['LoginType'] = "";
+$_SESSION['SchoolID'] = "";
+$_SESSION['UserID'] = "";
 
  echo '<LINK rel="stylesheet" type="text/css" href="style.css" title="style1">';
  echo("<center><img src=basmati.gif><br>");

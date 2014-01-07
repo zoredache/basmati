@@ -23,35 +23,26 @@
 //
 // $Id: showreportcard.php,v 1.4 2003/12/23 19:12:16 basmati Exp $
 
-  $LoginType = "";
-
   session_start();
 
-  $LoginType = $HTTP_SESSION_VARS['LoginType'];
-  $SchoolID =    $HTTP_SESSION_VARS['SchoolID'];
-  $UserID = $HTTP_SESSION_VARS['UserID'];
-  if ($LoginType == "S") {
-  	$sid = $HTTP_SESSION_VARS['sid'];
+  if ($_SESSION['LoginType'] == "S") {
+  	$sid = $_SESSION['sid'];
   } else {
   	$sid = $HTTP_GET_VARS['sid'];
   }
 
-
-  session_register("CurrentSID");
-  $HTTP_SESSION_VARS['CurrentSID'] = $sid;
-  $CurrentSID = $sid;
-
+  $_SESSION['CurrentSID'] = $sid;
 
   include ("basmaticonstants.php");
 
   $loginvalue = 0;
-  if ($LoginType == "T") {
+  if ($_SESSION['LoginType'] == "T") {
     $loginvalue = 1;
   }
-  if ($LoginType == "S") {
+  if ($_SESSION['LoginType'] == "S") {
     $loginvalue = 1;
   }
- if ($LoginType == "A") {
+ if ($_SESSION['LoginType'] == "A") {
     $loginvalue = 1;
   }
 
@@ -61,7 +52,7 @@
  }
 
 
-  $school = $SchoolID;
+  $school = $_SESSION['SchoolID'];
   $sid = intval($sid);
   //check for invalid student ID
   if (intval($sid)<=0){

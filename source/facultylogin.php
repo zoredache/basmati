@@ -36,21 +36,14 @@
 
  fnopenDB();
  if (VerifyAccount()=="EXIT"){
-  setcookie("LoginType","");
   echo '<LINK rel="stylesheet" type="text/css" href="style.css" title="style1">';
    echo("<font color=red>BAD USERNAME or PASSWORD</FONT>");
   exit;
  }
 //Start Session or use cookies...
-  session_register("LoginType");
-  session_register("SchoolID");
-  session_register("UserID");
-  $LoginType = "T";
-  $SchoolID = $school_id;
-  $UserID = $uname;
-  $HTTP_SESSION_VARS['LoginType'] = "T";
-  $HTTP_SESSION_VARS['SchoolID'] = $school_id;
-  $HTTP_SESSION_VARS['UserID'] = $uname;
+  $_SESSION['LoginType'] = "T";
+  $_SESSION['SchoolID'] = $school_id;
+  $_SESSION['UserID'] = $uname;
 
  echo '<LINK rel="stylesheet" type="text/css" href="style.css" title="style1">';
  echo("<body bgcolor=white><center><img src=basmati.gif><br><font size=+1 color=green>You are now logged in.</font></center>");  echo "<hr>";

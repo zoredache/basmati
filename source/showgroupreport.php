@@ -26,10 +26,8 @@
 //This file displays results of a SQL query
 
 //Check security
-$LoginType = "";
 session_start();
 
-$logontype = $HTTP_SESSION_VARS['LoginType'];
 $returnstyle = $HTTP_GET_VARS['returnstyle'];
 $groupid = $HTTP_GET_VARS['groupid'];
 $percent = $HTTP_GET_VARS['percent'];
@@ -41,7 +39,6 @@ if ($datamethod == "odbc") {
   echo ("This feature is only available with the MySQL database server.");
   exit;
 }
-//$logontype = $LoginType;
 $dbserv = $databaseserver;
 $dbuser = $datausername;
 $dbpass = $datapassword;
@@ -93,7 +90,7 @@ $sqltext = "SELECT PERSONAL.sid as sid, PERSONAL.last, PERSONAL.first, GMSCORES.
 
 
 
-if ($logontype != "A" && $logontype != "T"){
+if ($_SESSION['LoginType'] != "A" && $_SESSION['LoginType'] != "T"){
   echo "<body bgcolor=#cacaff><font face='verdana,arial,helvetica'><b>You must log-in to use this feature.</font>";
   exit;
 }

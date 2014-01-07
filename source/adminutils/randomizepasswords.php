@@ -25,10 +25,8 @@
 
 
 //Check security
-$LoginType = "";
 session_start();
 
-$LoginType = $HTTP_SESSION_VARS['LoginType'];
 $defaultpw = $HTTP_POST_VARS['defaultpw'];
 
 
@@ -38,7 +36,7 @@ $defaultpw = $HTTP_POST_VARS['defaultpw'];
 
 
 
-if ($LoginType != "A" . $districtid){
+if ($_SESSION['LoginType'] != "A" . $districtid){
 
   echo "<body bgcolor=#cacaff><font face='verdana,arial,helvetica'><b>You must log-in to use this feature.</font>";
 
