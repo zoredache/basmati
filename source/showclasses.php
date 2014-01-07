@@ -146,5 +146,3 @@ function fnCloseDB(){
  }
 
 </script>
-
-

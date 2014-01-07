@@ -36,5 +36,3 @@ $sqltext = $HTTP_POST_VARS['sqltext'];
     header("Location: submitquery.php?sqltext=$sqltext&returnstyle=returnhtml");
   }
 ?>
-
-

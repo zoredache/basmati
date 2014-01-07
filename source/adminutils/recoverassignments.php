@@ -102,5 +102,3 @@ echo "<B>Assignment List</B>";
  mysql_close($link);
 
 ?>
-
-

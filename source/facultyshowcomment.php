@@ -117,7 +117,4 @@ function fnCloseDB(){
  }
 }
 
-
-
 ?>
-

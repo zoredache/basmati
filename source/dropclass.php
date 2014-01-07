@@ -96,12 +96,4 @@ function fnCloseDB(){
  }
 }
 
-
-
-
 ?>
-
-
-
-
-

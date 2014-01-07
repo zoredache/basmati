@@ -311,5 +311,3 @@ function printError($errorMesg)
 ?>
 <p>
 <font color=red size=+2>Finished!</font>
-
-

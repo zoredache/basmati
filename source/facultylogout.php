@@ -32,6 +32,3 @@ $_SESSION['UserID'] = "";
  echo("<center><img src=basmati.gif><br>");
  echo("You are now logged out.</center>");
 
-
-
-?>

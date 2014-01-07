@@ -139,5 +139,3 @@ $resource = mysql_query($sqldel,$link);
  mysql_close($link);
 
 ?>
-
-

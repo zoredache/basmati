@@ -308,12 +308,4 @@ function ParseStandards($standardtext,$processcode){
 
 }
 
-
 ?>
-
-
-
-
-
-
-

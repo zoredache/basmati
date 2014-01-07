@@ -174,6 +174,3 @@ if (strtoupper(substr($sqltext,0,6))!= "SELECT"){
 
  mysql_close($link);
 ?>
-
-
-

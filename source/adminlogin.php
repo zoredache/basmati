@@ -44,5 +44,3 @@ if ($uname == $admuser && $pword == $admpass){
   echo ("Invalid Login.");
 }
 
-?>
-

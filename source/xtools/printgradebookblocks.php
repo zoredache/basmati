@@ -333,12 +333,4 @@ function ParseStandards($standardtext,$processcode){
 
 }
 
-
 ?>
-
-
-
-
-
-
-

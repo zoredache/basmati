@@ -377,9 +377,4 @@ function ParseStandards($standardtext,$processcode){
 
 }
 
-
 ?>
-
-
-
-

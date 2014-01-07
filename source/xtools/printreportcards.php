@@ -223,16 +223,4 @@ function fnCloseDB(){
  }
 }
 
-
-
-
-
 ?>
-
-
-
-
-
-
-
-

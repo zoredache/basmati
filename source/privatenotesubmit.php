@@ -80,7 +80,4 @@ function fnCloseDB(){
  }
 }
 
-
-
-
 ?>

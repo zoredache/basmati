@@ -168,12 +168,4 @@ function fnCloseDB(){
  }
 }
 
-
-
-
 ?>
-
-
-
-
-

@@ -50,5 +50,3 @@ Step 2:  Click "Submit File to Basmati" to send the file to Basmati...
 </form>
 </body>
 </html>
-
-

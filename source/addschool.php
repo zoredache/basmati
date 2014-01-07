@@ -105,6 +105,3 @@ if ($datamethod == "odbc"){
 ?>
 	<p>
 	<font color=red size=+2><br>Finished!</font>
-
-
-
