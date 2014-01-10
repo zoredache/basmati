@@ -20,10 +20,6 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
-$admuser = "";
-$admpass = "";
-
-require("basmaticonstants.php");
 require_once('global.php');
 
 //Allows for register_globals=off

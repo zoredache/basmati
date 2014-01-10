@@ -20,7 +20,6 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
-  include ("basmaticonstants.php");
 require_once('global.php');
 
   $sid = $_POST['sid'];
@@ -85,7 +84,6 @@ if ($datamethod == "mysql"){
 
  if ($row_n != 0){
 
-   session_start();
    $_SESSION['LoginType'] = "S";
    $_SESSION['SchoolID'] = $radio1;
    $_SESSION['sid'] = $sidfromform;

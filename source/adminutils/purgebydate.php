@@ -22,7 +22,7 @@
 
 
 //Check security
-session_start();
+require_once('../global.php');
 
 $schoolid = $_POST['schoolid'];
 $purgedate = $_POST['purgedate'];

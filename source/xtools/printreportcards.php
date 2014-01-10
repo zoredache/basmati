@@ -20,8 +20,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
-
-  session_start();
+require_once('../global.php');
 
   $SchoolID = $_POST['schoolid'];
   $StorageDir = $_POST['storageloc'];

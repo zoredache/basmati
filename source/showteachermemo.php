@@ -20,9 +20,8 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
-session_start();
+require_once('global.php');
 
- include ("basmaticonstants.php");
  $TchrUserID = $_POST['TchrUserID'];
  $Namesake = $_POST['Namesake'];
 

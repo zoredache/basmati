@@ -20,10 +20,10 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
+require_once('../global.php');
 
 //Connect to the database...
 //Check security
-session_start();
 $schoolid = $_POST['schoolid'];
 
   require("../basmaticonstants.php");

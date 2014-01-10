@@ -20,8 +20,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
-//Check security
-session_start();
+require_once('../global.php');
 
  require("../basmaticonstants.php");
 

@@ -20,9 +20,9 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
+require_once('global.php');
+
  $LoginType = "";
-  session_start();
- require("basmaticonstants.php");
  if ($LoginType != "A"){
    echo("You must log-in to use this feature.");
    exit;
@@ -37,8 +37,6 @@
 
 
 <?php
-include ("basmaticonstants.php");
-
 
 $sql_CLIENTS = "
   CREATE TABLE CLIENTS (

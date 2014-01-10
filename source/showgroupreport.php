@@ -22,8 +22,7 @@
 
 //This file displays results of a SQL query
 
-//Check security
-session_start();
+require_once('global.php');
 
 $returnstyle = $_GET['returnstyle'];
 $groupid = $_GET['groupid'];
@@ -31,7 +30,6 @@ $percent = $_GET['percent'];
 $groupcriteria = $_GET['groupcriteria'];
 
 //Basmati Conversions...
-include("basmaticonstants.php");
 if ($datamethod == "odbc") {
   echo ("This feature is only available with the MySQL database server.");
   exit;

@@ -20,11 +20,9 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
-
- include ("basmaticonstants.php");
+require_once('global.php');
 
 //For some reason, the Windows version needs to initialize a session before logging in???
- session_start();
  $_SESSION['LoginType'] = "Z";
 
 

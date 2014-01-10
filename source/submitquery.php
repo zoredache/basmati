@@ -20,11 +20,11 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
-session_start();
+require_once('global.php');
+
 $sqltext = $_POST['sqltext'];
 $returnstyle = $_POST['returnstyle'];
 
- include ("basmaticonstants.php");
  if ($_SESSION['LoginType'] != "A" . $districtid){
    echo("You must log-in to use this feature.");
    exit;
@@ -43,7 +43,7 @@ You submitted the following query:<br> <i>
   </i>
 <hr>
 <?php
- include("basmaticonstants.php");
+
  if ($datamethod == "odbc"){
   $link = odbc_connect($databasename,$datausername,$datapassword);
   $sql_statement = odbc_prepare($link,$sqltext);

@@ -20,8 +20,6 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
-session_start();
-
 require_once('global.php');
 
  if ($_SESSION['LoginType'] != "T" && $_SESSION['LoginType'] != "A"){
@@ -41,8 +39,6 @@ require_once('global.php');
 <h3>Results from Export File Transfer</h3>
 
 <?php
-include ("basmaticonstants.php");
-
 
   $SchoolID =    $_SESSION['SchoolID'];
   $UserID = $_SESSION['UserID'];

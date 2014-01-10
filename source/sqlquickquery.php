@@ -23,8 +23,6 @@
 //Allows for register_globals=off
 $sqltext = $_POST['sqltext'];
 
-  include("basmaticonstants.php");
-
   if ($datamethod == "mysql"){
     $sqltext = urlencode($sqltext);
     //echo "$sqltext going to sqlqery.php";

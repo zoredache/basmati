@@ -20,15 +20,14 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
+require_once('global.php');
+
 //This file allows the editing of a particular row in a table
 
-//Check security
-session_start();
 $tablename = $_GET['tablename'];
 $editrow = $_GET['editrow'];
 
 //Basmati Conversions...
-include("basmaticonstants.php");
 $dbserv = $databaseserver;
 $dbuser = $datausername;
 $dbpass = $datapassword;

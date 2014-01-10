@@ -20,7 +20,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
-session_start();
+require_once('global.php');
 
  if ($_SESSION['LoginType'] != "T" && $_SESSION['LoginType'] != "A"){
    echo("You must log-in to use this feature.");
@@ -36,7 +36,6 @@ session_start();
 <h3>Results from Export File Transfer</h3>
 
 <?php
-include ("basmaticonstants.php");
 
 //Initialize Random Number Generator
   srand((double)microtime() * 1000000);

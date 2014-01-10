@@ -20,16 +20,14 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
-//This file displays results of a SQL query
+require_once('global.php');
 
-//Check security
-session_start();
+//This file displays results of a SQL query
 
 $returnstyle = $_GET['returnstyle'];
 $sqltext = $_GET['sqltext'];
 
 //Basmati Conversions...
-include("basmaticonstants.php");
 if ($datamethod == "odbc") {
   echo ("This feature is only available with the MySQL database server.");
   exit;

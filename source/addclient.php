@@ -20,7 +20,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
-session_start();
+require_once('global.php');
 
 //Allows for register_globals=off
 $client_id = $_POST['client_id'];
@@ -29,9 +29,6 @@ $client_school = $_POST['client_school'];
 $client_expdate = $_POST['client_expdate'];
 $client_fullname = $_POST['client_fullname'];
 
-
-
- require ("basmaticonstants.php");
  if ($_SESSION['LoginType'] != "A" . $districtid){
    echo("You must log-in to use this feature.");
    exit;
@@ -48,7 +45,6 @@ $client_fullname = $_POST['client_fullname'];
 
 <?php
 
-require ("basmaticonstants.php");
 function printError($errorMesg)
 {
  printf("<br><font color=red> %s <br>",$errorMesg);

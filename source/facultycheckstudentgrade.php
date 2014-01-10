@@ -20,7 +20,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
- session_start();
+require_once('global.php');
 
   $SchoolID =    $_SESSION['SchoolID'];
   $UserID = $_SESSION['UserID'];

@@ -20,9 +20,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
-
-//Check security
-session_start();
+require_once('../global.php');
 
 $schoolid = $_POST['schoolid'];
 $groupid = $_POST['groupid'];

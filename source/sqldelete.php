@@ -20,11 +20,9 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
-//Check security
-session_start();
+require_once('global.php');
 
 //Basmati Conversions...
-include("basmaticonstants.php");
 $tablename = $_GET['tablename'];
 $editrow = $_GET['editrow'];
 

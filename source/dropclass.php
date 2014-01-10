@@ -20,13 +20,12 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
- session_start();
+require_once('global.php');
 
   $SchoolID = $_SESSION['SchoolID'];
   $UserID = $_SESSION['UserID'];
   $dropid = $_GET['dropid'];
 
- include ("basmaticonstants.php");
  if ($_SESSION['LoginType'] != "T" && $_SESSION['LoginType'] != "A" . $districtid){
    echo("You must log-in to use this feature.");
    exit;

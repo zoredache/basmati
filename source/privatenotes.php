@@ -20,14 +20,13 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
+require_once('global.php');
 
- session_start();
   $SchoolID =    $_SESSION['SchoolID'];
   $UserID = $_SESSION['UserID'];
   $cc = $_GET['cc'];
   $sid = $_GET['sid'];
 
- include ("basmaticonstants.php");
  if ($_SESSION['LoginType'] != "T" && $_SESSION['LoginType'] != "A"){
    echo("You must log-in to use this feature.");
    exit;

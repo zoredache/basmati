@@ -20,6 +20,11 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
+// Load global configuration
+require_once(realpath(dirname(__FILE__).'/basmaticonstants.php'));
+// Start session
+session_start();
+
 //Common Basmati Functions
 
 /////////////////////////////////

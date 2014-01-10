@@ -20,13 +20,11 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
+require_once('global.php');
+
 //This file allows the editing of a particular row in a table
 
-//Check security
-session_start();
-
 //Basmati Conversions...
-include("basmaticonstants.php");
 
 $dt = $_POST['dt'];
 $dv = $_POST['dv'];

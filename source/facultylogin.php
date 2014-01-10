@@ -20,12 +20,11 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
+require_once('global.php');
+
  global $school_id;
  $uname = $_POST['uname'];
  $pword = $_POST['pword'];
-
- include ("basmaticonstants.php");
-require_once('global.php');
 
  if (trim($emaildomain) != "") {
   	$uname = trim($uname) . "@" . $emaildomain;

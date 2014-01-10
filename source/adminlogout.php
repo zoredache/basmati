@@ -20,7 +20,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
-session_start();
+require_once('global.php');
 
 //Allows for register_globals=off
 $SchoolID = $_SESSION['SchoolID'];

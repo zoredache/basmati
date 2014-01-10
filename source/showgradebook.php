@@ -20,14 +20,12 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
- session_start();
+require_once('global.php');
+
  $SchoolID = $_SESSION['SchoolID'];
  $UserID = $_SESSION['UserID'];
  $cc = $_GET['cc'];
  $sid = $_SESSION['sid'];
-
-
- include ("basmaticonstants.php");
 
 
  if ($_SESSION['LoginType'] != "T" && $_SESSION['LoginType'] != "A" && $_SESSION['LoginType'] != "S"){

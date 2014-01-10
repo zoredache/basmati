@@ -17,7 +17,6 @@
 
 <?php
 
-  include("basmaticonstants.php");
   echo "<TABLE BORDER=0>";
   if (trim($emaildomain) == "") {
     echo "<form method=post action=facultylogin.php name=loginform>";

@@ -20,7 +20,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
-  session_start();
+require_once('global.php');
 
   if ($_SESSION['LoginType'] == "S") {
   	$sid = $_SESSION['sid'];
@@ -29,8 +29,6 @@
   }
 
   $_SESSION['CurrentSID'] = $sid;
-
-  include ("basmaticonstants.php");
 
   $loginvalue = 0;
   if ($_SESSION['LoginType'] == "T") {

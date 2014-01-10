@@ -20,9 +20,7 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
-require ("basmaticonstants.php");
-
-session_start();
+require_once('global.php');
 
 //Allows for register_globals=off
 $school_id = $_POST['school_id'];
