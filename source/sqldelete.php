@@ -25,8 +25,8 @@ session_start();
 
 //Basmati Conversions...
 include("basmaticonstants.php");
-$tablename = $HTTP_GET_VARS['tablename'];
-$editrow = $HTTP_GET_VARS['editrow'];
+$tablename = $_GET['tablename'];
+$editrow = $_GET['editrow'];
 
 $dbserv = $databaseserver;
 $dbuser = $datausername;

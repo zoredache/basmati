@@ -21,14 +21,14 @@
 // +----------------------------------------------------------------------+
 
  session_start();
- $SchoolID =    $HTTP_POST_VARS['schoolid'];
+ $SchoolID =    $_POST['schoolid'];
 
  //These will come from files....
  $UserID = $_SESSION['UserID'];
- $cc = $HTTP_GET_VARS['cc'];
+ $cc = $_GET['cc'];
  $CurrentSID = $_SESSION['CurrentSID'];
  $sid = $_SESSION['sid'];
- $StorageDir = $HTTP_POST_VARS['storageloc'];
+ $StorageDir = $_POST['storageloc'];
  $nl = chr(13) . chr(10);
  $tab = chr(9);
 

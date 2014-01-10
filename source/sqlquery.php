@@ -25,8 +25,8 @@
 //Check security
 session_start();
 
-$returnstyle = $HTTP_GET_VARS['returnstyle'];
-$sqltext = $HTTP_GET_VARS['sqltext'];
+$returnstyle = $_GET['returnstyle'];
+$sqltext = $_GET['sqltext'];
 
 //Basmati Conversions...
 include("basmaticonstants.php");

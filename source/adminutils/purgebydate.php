@@ -24,9 +24,9 @@
 //Check security
 session_start();
 
-$schoolid = $HTTP_POST_VARS['schoolid'];
-$purgedate = $HTTP_POST_VARS['purgedate'];
-$act = $HTTP_POST_VARS['act'];
+$schoolid = $_POST['schoolid'];
+$purgedate = $_POST['purgedate'];
+$act = $_POST['act'];
 $deleteall = 0;
 
 if ($schoolid == "***ALL***"){

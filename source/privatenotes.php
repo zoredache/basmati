@@ -24,8 +24,8 @@
  session_start();
   $SchoolID =    $_SESSION['SchoolID'];
   $UserID = $_SESSION['UserID'];
-  $cc = $HTTP_GET_VARS['cc'];
-  $sid = $HTTP_GET_VARS['sid'];
+  $cc = $_GET['cc'];
+  $sid = $_GET['sid'];
 
  include ("basmaticonstants.php");
  if ($_SESSION['LoginType'] != "T" && $_SESSION['LoginType'] != "A"){

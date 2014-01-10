@@ -23,8 +23,8 @@
 session_start();
 
  include ("basmaticonstants.php");
- $TchrUserID = $HTTP_POST_VARS['TchrUserID'];
- $Namesake = $HTTP_POST_VARS['Namesake'];
+ $TchrUserID = $_POST['TchrUserID'];
+ $Namesake = $_POST['Namesake'];
 
 
  echo ("<html><body bgcolor=white>");

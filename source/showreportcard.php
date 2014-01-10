@@ -25,7 +25,7 @@
   if ($_SESSION['LoginType'] == "S") {
   	$sid = $_SESSION['sid'];
   } else {
-  	$sid = $HTTP_GET_VARS['sid'];
+  	$sid = $_GET['sid'];
   }
 
   $_SESSION['CurrentSID'] = $sid;

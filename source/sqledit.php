@@ -24,8 +24,8 @@
 
 //Check security
 session_start();
-$tablename = $HTTP_GET_VARS['tablename'];
-$editrow = $HTTP_GET_VARS['editrow'];
+$tablename = $_GET['tablename'];
+$editrow = $_GET['editrow'];
 
 //Basmati Conversions...
 include("basmaticonstants.php");

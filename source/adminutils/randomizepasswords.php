@@ -24,7 +24,7 @@
 //Check security
 session_start();
 
-$defaultpw = $HTTP_POST_VARS['defaultpw'];
+$defaultpw = $_POST['defaultpw'];
 
 
 

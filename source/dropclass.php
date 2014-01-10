@@ -24,7 +24,7 @@
 
   $SchoolID = $_SESSION['SchoolID'];
   $UserID = $_SESSION['UserID'];
-  $dropid = $HTTP_GET_VARS['dropid'];
+  $dropid = $_GET['dropid'];
 
  include ("basmaticonstants.php");
  if ($_SESSION['LoginType'] != "T" && $_SESSION['LoginType'] != "A" . $districtid){

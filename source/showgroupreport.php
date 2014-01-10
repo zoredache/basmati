@@ -25,10 +25,10 @@
 //Check security
 session_start();
 
-$returnstyle = $HTTP_GET_VARS['returnstyle'];
-$groupid = $HTTP_GET_VARS['groupid'];
-$percent = $HTTP_GET_VARS['percent'];
-$groupcriteria = $HTTP_GET_VARS['groupcriteria'];
+$returnstyle = $_GET['returnstyle'];
+$groupid = $_GET['groupid'];
+$percent = $_GET['percent'];
+$groupcriteria = $_GET['groupcriteria'];
 
 //Basmati Conversions...
 include("basmaticonstants.php");

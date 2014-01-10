@@ -23,8 +23,8 @@
 //Check security
 session_start();
 
-$schoolid = $HTTP_POST_VARS['schoolid'];
-$cc = $HTTP_POST_VARS['cc'];
+$schoolid = $_POST['schoolid'];
+$cc = $_POST['cc'];
 
  require("../basmaticonstants.php");
 

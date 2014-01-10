@@ -23,7 +23,7 @@
  session_start();
  $SchoolID = $_SESSION['SchoolID'];
  $UserID = $_SESSION['UserID'];
- $cc = $HTTP_GET_VARS['cc'];
+ $cc = $_GET['cc'];
  $sid = $_SESSION['sid'];
 
 

@@ -23,11 +23,11 @@
  session_start();
   $SchoolID = $_SESSION['SchoolID'];
   $UserID = $_SESSION['UserID'];
-  $cc = $HTTP_POST_VARS['coursecode'];
-  $sid = $HTTP_POST_VARS['studentid'];
-  $clearme = $HTTP_POST_VARS['clearme'];
-  $notes = $HTTP_POST_VARS['notes']; 
-  $noteid = $HTTP_POST_VARS['noteid'];
+  $cc = $_POST['coursecode'];
+  $sid = $_POST['studentid'];
+  $clearme = $_POST['clearme'];
+  $notes = $_POST['notes']; 
+  $noteid = $_POST['noteid'];
 
 
  include ("basmaticonstants.php");

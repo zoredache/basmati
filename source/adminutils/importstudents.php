@@ -23,8 +23,8 @@
 //Check security
 session_start();
 
-$schoolid = $HTTP_POST_VARS['schoolid'];
-$defaultpw = $HTTP_POST_VARS['defaultpw'];
+$schoolid = $_POST['schoolid'];
+$defaultpw = $_POST['defaultpw'];
 
  require("../basmaticonstants.php");
 

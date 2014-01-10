@@ -21,8 +21,8 @@
 // +----------------------------------------------------------------------+
 
  global $school_id;
- $uname = $HTTP_POST_VARS['uname'];
- $pword = $HTTP_POST_VARS['pword'];
+ $uname = $_POST['uname'];
+ $pword = $_POST['pword'];
 
  include ("basmaticonstants.php");
  include ("basmatifunctions.php");

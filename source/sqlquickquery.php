@@ -21,7 +21,7 @@
 // +----------------------------------------------------------------------+
 
 //Allows for register_globals=off
-$sqltext = $HTTP_POST_VARS['sqltext'];
+$sqltext = $_POST['sqltext'];
 
   include("basmaticonstants.php");
 

@@ -23,11 +23,11 @@
 session_start();
 
 //Allows for register_globals=off
-$client_id = $HTTP_POST_VARS['client_id'];
-$client_pw = $HTTP_POST_VARS['client_pw'];
-$client_school = $HTTP_POST_VARS['client_school'];
-$client_expdate = $HTTP_POST_VARS['client_expdate'];
-$client_fullname = $HTTP_POST_VARS['client_fullname'];
+$client_id = $_POST['client_id'];
+$client_pw = $_POST['client_pw'];
+$client_school = $_POST['client_school'];
+$client_expdate = $_POST['client_expdate'];
+$client_fullname = $_POST['client_fullname'];
 
 
 

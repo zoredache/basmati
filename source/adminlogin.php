@@ -27,8 +27,8 @@ require("basmaticonstants.php");
 require("basmatifunctions.php");
 
 //Allows for register_globals=off
-$uname = $HTTP_POST_VARS['uname'];
-$pword = $HTTP_POST_VARS['pword'];
+$uname = $_POST['uname'];
+$pword = $_POST['pword'];
 
 
 if ($uname == $admuser && $pword == $admpass){

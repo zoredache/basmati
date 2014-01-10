@@ -23,9 +23,9 @@
   include ("basmaticonstants.php");
   include ("basmatifunctions.php");
 
-  $sid = $HTTP_POST_VARS['sid'];
-  $radio1 = $HTTP_POST_VARS['radio1'];
-  $pword = $HTTP_POST_VARS['pword'];
+  $sid = $_POST['sid'];
+  $radio1 = $_POST['radio1'];
+  $pword = $_POST['pword'];
 
 
   if (trim($sid) == ""){

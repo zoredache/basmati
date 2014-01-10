@@ -23,7 +23,7 @@
 //Connect to the database...
 //Check security
 session_start();
-$schoolid = $HTTP_POST_VARS['schoolid'];
+$schoolid = $_POST['schoolid'];
 
   require("../basmaticonstants.php");
 

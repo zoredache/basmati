@@ -23,8 +23,8 @@
  session_start();
   $SchoolID =    $_SESSION['SchoolID'];
   $UserID = $_SESSION['UserID'];
-  $cc = $HTTP_GET_VARS['cc'];
-  $reporttype = $HTTP_GET_VARS['reporttype'];
+  $cc = $_GET['cc'];
+  $reporttype = $_GET['reporttype'];
 
  include ("basmaticonstants.php");
  if ($_SESSION['LoginType'] != "T" && $_SESSION['LoginType'] != "A"){

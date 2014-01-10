@@ -24,8 +24,8 @@
 //Check security
 session_start();
 
-$schoolid = $HTTP_POST_VARS['schoolid'];
-$groupid = $HTTP_POST_VARS['groupid'];
+$schoolid = $_POST['schoolid'];
+$groupid = $_POST['groupid'];
  require("../basmaticonstants.php");
 
 if ($_SESSION['LoginType'] != "A" . $districtid){

@@ -23,7 +23,7 @@
 session_start();
   $SchoolID =    $_SESSION['SchoolID'];
   $UserID = $_SESSION['UserID'];
-  $comment = $HTTP_POST_VARS['comment'];
+  $comment = $_POST['comment'];
 
  include ("basmaticonstants.php");
 

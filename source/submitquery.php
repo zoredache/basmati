@@ -21,8 +21,8 @@
 // +----------------------------------------------------------------------+
 
 session_start();
-$sqltext = $HTTP_POST_VARS['sqltext'];
-$returnstyle = $HTTP_POST_VARS['returnstyle'];
+$sqltext = $_POST['sqltext'];
+$returnstyle = $_POST['returnstyle'];
 
  include ("basmaticonstants.php");
  if ($_SESSION['LoginType'] != "A" . $districtid){

@@ -23,8 +23,8 @@
 
   session_start();
 
-  $SchoolID = $HTTP_POST_VARS['schoolid'];
-  $StorageDir = $HTTP_POST_VARS['storageloc'];
+  $SchoolID = $_POST['schoolid'];
+  $StorageDir = $_POST['storageloc'];
   $school = $SchoolID;
 
 

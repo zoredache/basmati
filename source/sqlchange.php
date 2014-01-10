@@ -28,12 +28,12 @@ session_start();
 //Basmati Conversions...
 include("basmaticonstants.php");
 
-$dt = $HTTP_POST_VARS['dt'];
-$dv = $HTTP_POST_VARS['dv'];
-$dn = $HTTP_POST_VARS['dn'];
-$maxval = $HTTP_POST_VARS['maxval'];
-$tablename = $HTTP_POST_VARS['tablename'];
-$editrow = $HTTP_POST_VARS['editrow'];
+$dt = $_POST['dt'];
+$dv = $_POST['dv'];
+$dn = $_POST['dn'];
+$maxval = $_POST['maxval'];
+$tablename = $_POST['tablename'];
+$editrow = $_POST['editrow'];
 
 
 $dbserv = $databaseserver;
