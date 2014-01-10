@@ -25,7 +25,7 @@
  $pword = $_POST['pword'];
 
  include ("basmaticonstants.php");
- include ("basmatifunctions.php");
+require_once('global.php');
 
  if (trim($emaildomain) != "") {
   	$uname = trim($uname) . "@" . $emaildomain;

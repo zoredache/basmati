@@ -21,7 +21,7 @@
 // +----------------------------------------------------------------------+
 
   include ("basmaticonstants.php");
-  include ("basmatifunctions.php");
+require_once('global.php');
 
   $sid = $_POST['sid'];
   $radio1 = $_POST['radio1'];

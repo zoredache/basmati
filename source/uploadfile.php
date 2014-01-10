@@ -22,7 +22,7 @@
 
 session_start();
 
-include ("basmatifunctions.php");
+require_once('global.php');
 
  if ($_SESSION['LoginType'] != "T" && $_SESSION['LoginType'] != "A"){
    echo '<LINK rel="stylesheet" type="text/css" href="style.css" title="style1">';

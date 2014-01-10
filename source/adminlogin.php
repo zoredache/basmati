@@ -24,7 +24,7 @@ $admuser = "";
 $admpass = "";
 
 require("basmaticonstants.php");
-require("basmatifunctions.php");
+require_once('global.php');
 
 //Allows for register_globals=off
 $uname = $_POST['uname'];
