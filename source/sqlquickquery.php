@@ -20,6 +20,8 @@
 // | Authors: James B. Bassett - basmatisoftware@msn.com                  |
 // +----------------------------------------------------------------------+
 
+require_once('global.php');
+
 //Allows for register_globals=off
 $sqltext = $_POST['sqltext'];
 
@@ -33,4 +35,3 @@ $sqltext = $_POST['sqltext'];
     $sqltext = urlencode($sqltext);
     header("Location: submitquery.php?sqltext=$sqltext&returnstyle=returnhtml");
   }
-?>
