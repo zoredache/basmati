@@ -43,8 +43,7 @@ require_once('global.php');
   $SchoolID =    $_SESSION['SchoolID'];
   $UserID = $_SESSION['UserID'];
 
-  $userfile = $HTTP_POST_FILES;
-  $file = $userfile['userfile']['tmp_name'];
+  $file = $_FILES['userfile']['tmp_name'];
 
 
 //Initialize Random Number Generator

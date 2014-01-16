@@ -41,8 +41,7 @@ require_once('../global.php');
 $delim = chr(9);
 $nl = chr(13) . chr(10);
 
-$userfile = $HTTP_POST_FILES;
-$file = $userfile['userfile']['tmp_name'];
+$file = $_FILES['userfile']['tmp_name'];
 if ($file == "none" || $file == ""){
 	echo "You did not submit a file...";
     exit;

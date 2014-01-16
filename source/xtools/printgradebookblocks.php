@@ -45,8 +45,7 @@ set_time_limit(6000);  //allow up to 10 minutes for this script to run!
 
 //Read the student ID's from the submitted file...
 $delim = chr(9);
-$userfile = $HTTP_POST_FILES;
-$file = $userfile['userfile']['tmp_name'];
+$file = $_FILES['userfile']['tmp_name'];
 if ($file == "none" || $file == ""){
 	echo "You did not submit a file...";
     exit;
